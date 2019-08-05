@@ -8,7 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
 import { Router } from '@reach/router';
 import ArticleList from './components/ArticleList/ArticleList';
-import Article from './components/ArticleList/Article';
+import Article from './components/Article/Article';
 
 class App extends Component {
 	state = {
