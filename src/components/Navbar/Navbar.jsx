@@ -10,14 +10,21 @@ const Navbar = ({ topicsData: { topics } }) => {
 			<Row>
 				<Link to="/">Home</Link>
 			</Row>
-			{topics.map((topic) => {
-				const formattedSlug = topic.slug[0].toUpperCase() + topic.slug.slice(1);
-				return (
-					<Row key={topic.slug}>
-						<Link to={`/${topic.slug}`}>{formattedSlug}</Link>
-					</Row>
-				);
-			})}
+			<Row>
+				<Link to="/explore">Explore</Link>
+			</Row>
+			<ul>
+				{topics.map((topic) => {
+					const formattedSlug = topic.slug[0].toUpperCase() + topic.slug.slice(1);
+					return (
+						<Row key={topic.slug}>
+							<li>
+								<Link to={`/${topic.slug}`}>{formattedSlug}</Link>
+							</li>
+						</Row>
+					);
+				})}
+			</ul>
 		</nav>
 	);
 };
