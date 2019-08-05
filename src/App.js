@@ -9,6 +9,7 @@ import Header from './components/Header/Header';
 import { Router } from '@reach/router';
 import ArticleList from './components/ArticleList/ArticleList';
 import Article from './components/Article/Article';
+import TopicList from './components/TopicList/TopicList';
 
 class App extends Component {
 	state = {
@@ -35,6 +36,7 @@ class App extends Component {
 							<Col xs={8}>
 								<Header />
 								<Router>
+									<TopicList path="/explore" topicsData={topicsData} />
 									<ArticleList path="/" />
 									<Article path="/:article_id" />
 								</Router>
