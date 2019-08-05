@@ -1,8 +1,8 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
+import './Navbar.css';
 
 const Navbar = ({ topicData: { topics } }) => {
-	console.log(topics);
 	return (
 		<nav id="navbar">
 			<ul>
@@ -10,9 +10,10 @@ const Navbar = ({ topicData: { topics } }) => {
 					<li>Home</li>
 				</Row>
 				{topics.map((topic) => {
+					const formattedSlug = topic.slug[0].toUpperCase() + topic.slug.slice(1);
 					return (
 						<Row key={topic.slug}>
-							<li>{topic.slug}</li>
+							<li>{formattedSlug}</li>
 						</Row>
 					);
 				})}
