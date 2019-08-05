@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import './ArticleList.css';
 
 class ArticleList extends Component {
 	render() {
 		return (
-			<div>
-				<p>Article List here!</p>
-			</div>
+			<section id="articleList">
+				<article>
+					<p>Article List here!</p>
+				</article>
+			</section>
 		);
 	}
 }
