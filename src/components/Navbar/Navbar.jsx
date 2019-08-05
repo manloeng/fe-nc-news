@@ -1,24 +1,22 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 
-const Navbar = () => {
+const Navbar = ({ topicData: { topics } }) => {
+	console.log(topics);
 	return (
 		<nav id="navbar">
-			<Row>
-				<p>Hello</p>
-			</Row>
-			<Row>
-				<p>Hello</p>
-			</Row>
-			<Row>
-				<p>Hello</p>
-			</Row>
-			<Row>
-				<p>Hello</p>
-			</Row>
-			<Row>
-				<p>Hello</p>
-			</Row>
+			<ul>
+				<Row>
+					<li>Home</li>
+				</Row>
+				{topics.map((topic) => {
+					return (
+						<Row key={topic.slug}>
+							<li>{topic.slug}</li>
+						</Row>
+					);
+				})}
+			</ul>
 		</nav>
 	);
 };
