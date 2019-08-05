@@ -5,3 +5,11 @@
 ul {
 	list-style-type: none;
 }
+
+#navbar div a {
+	margin: 1em auto 1em auto;
+}
+
+#profile {
+	height: 20vh;
+}
