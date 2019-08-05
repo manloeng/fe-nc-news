@@ -7,7 +7,9 @@ class ArticleCard extends Component {
 		return (
 			<ul id="articleCard">
 				<li>
-					<p>{title}</p>
+					<header>
+						<h3>{title}</h3>
+					</header>
 					<p>Comment Count: {comment_count}</p>
 					<p>Topic: {topic}</p>
 					<p>By: {author}</p>
