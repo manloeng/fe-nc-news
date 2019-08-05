@@ -2,7 +2,7 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import './Navbar.css';
 
-const Navbar = ({ topicData: { topics } }) => {
+const Navbar = ({ topicsData: { topics } }) => {
 	return (
 		<nav id="navbar">
 			<ul>

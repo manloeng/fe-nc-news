@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import * as api from './components/api';
 import './App.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,24 +11,25 @@ import ArticleList from './components/ArticleList/ArticleList';
 
 class App extends Component {
 	state = {
-		topicData: null
+		topicsData: null
 	};
 
 	componentDidMount() {
-		axios.get('https://project-nc-news.herokuapp.com/api/topics').then(({ data }) => {
-			this.setState({ topicData: data });
+		api.fetchTopicsData().then((data) => {
+			this.setState({ topicsData: data });
 		});
 	}
 
 	render() {
-		const { topicData } = this.state;
+		const { topicsData } = this.state;
+		console.log(topicsData);
 		return (
-			topicData && (
+			topicsData && (
 				<div className="App">
 					<Container>
 						<Row>
 							<Col xs={4}>
-								<Navbar topicData={topicData} />
+								<Navbar topicsData={topicsData} />
 							</Col>
 							<Col xs={8}>
 								<Header />
