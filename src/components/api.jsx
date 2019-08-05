@@ -16,3 +16,9 @@ export const fetchTopicsData = () => {
 		return data;
 	});
 };
+
+export const fetchUsersData = (username) => {
+	return request.get(`/users/${username}`).then(({ data }) => {
+		return data;
+	});
+};
