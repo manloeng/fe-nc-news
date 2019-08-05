@@ -6,7 +6,6 @@ const request = axios.create({
 
 // don't think it's like that?
 export const fetchArticleData = (article_id = '') => {
-	console.log(article_id);
 	return request.get(`/articles/${article_id}`).then(({ data }) => {
 		return data;
 	});
