@@ -11,7 +11,8 @@ import ArticleList from './components/ArticleList/ArticleList';
 
 class App extends Component {
 	state = {
-		topicsData: null
+		topicsData: null,
+		user: ''
 	};
 
 	componentDidMount() {
