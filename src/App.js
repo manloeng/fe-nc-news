@@ -38,7 +38,8 @@ class App extends Component {
 								<Router>
 									<TopicList path="/explore" topicsData={topicsData} />
 									<ArticleList path="/" />
-									<Article path="/:article_id" />
+									<ArticleList path="/articles" />
+									<Article path="/articles/:article_id" />
 								</Router>
 							</Col>
 						</Row>

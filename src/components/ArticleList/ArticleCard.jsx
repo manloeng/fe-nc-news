@@ -8,7 +8,7 @@ class ArticleCard extends Component {
 		return (
 			<ul id="articleCard">
 				<li>
-					<Link to={`/${article_id}`}>{title}</Link>
+					<Link to={`/articles/${article_id}`}>{title}</Link>
 					<p>Comment Count: {comment_count}</p>
 					<p>Topic: {topic}</p>
 					<p>By: {author}</p>
