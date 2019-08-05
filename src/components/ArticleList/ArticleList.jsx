@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './ArticleList.css';
 import ArticleCard from './ArticleCard';
+import * as api from '../api';
 
 class ArticleList extends Component {
 	state = {
@@ -9,7 +9,7 @@ class ArticleList extends Component {
 	};
 
 	componentDidMount() {
-		axios.get('https://project-nc-news.herokuapp.com/api/articles').then(({ data }) => {
+		api.fetchArticlesData().then((data) => {
 			this.setState({ articleListData: data });
 		});
 	}
