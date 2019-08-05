@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './App.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -13,23 +14,32 @@ class App extends Component {
 		topicData: null
 	};
 
+	componentDidMount() {
+		axios.get('https://project-nc-news.herokuapp.com/api/topics').then(({ data }) => {
+			this.setState({ topicData: data });
+		});
+	}
+
 	render() {
+		const { topicData } = this.state;
 		return (
-			<div className="App">
-				<Container>
-					<Row>
-						<Col xs={4}>
-							<Navbar />
-						</Col>
-						<Col xs={8}>
-							<Header />
-							<Router>
-								<ArticleList path="/" />
-							</Router>
-						</Col>
-					</Row>
-				</Container>
-			</div>
+			topicData && (
+				<div className="App">
+					<Container>
+						<Row>
+							<Col xs={4}>
+								<Navbar topicData={topicData} />
+							</Col>
+							<Col xs={8}>
+								<Header />
+								<Router>
+									<ArticleList path="/" />
+								</Router>
+							</Col>
+						</Row>
+					</Container>
+				</div>
+			)
 		);
 	}
 }
