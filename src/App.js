@@ -14,7 +14,7 @@ import TopicList from './components/TopicList/TopicList';
 class App extends Component {
 	state = {
 		topicsData: null,
-		user: ''
+		user: 'tickle122'
 	};
 
 	componentDidMount() {
