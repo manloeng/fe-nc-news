@@ -1,10 +1,25 @@
 import React from 'react';
+import Row from 'react-bootstrap/Row';
 
 const Navbar = () => {
 	return (
-		<div>
-			<p>nav here</p>
-		</div>
+		<nav id="navbar">
+			<Row>
+				<p>Hello</p>
+			</Row>
+			<Row>
+				<p>Hello</p>
+			</Row>
+			<Row>
+				<p>Hello</p>
+			</Row>
+			<Row>
+				<p>Hello</p>
+			</Row>
+			<Row>
+				<p>Hello</p>
+			</Row>
+		</nav>
 	);
 };
 
