@@ -1,14 +1,15 @@
 #articleCard {
 	padding: 0;
-	margin: 0.5em;
+	margin: 2em;
 	font-size: 0.75em;
 	border: 1px solid blue;
 	border-radius: 1em;
 }
 
-h3 {
+/* #titleButton {
 	font-size: 1.1em;
+	padding: 0.2em;
 	border: 1px solid gray;
 	border-radius: 1em;
 	background-color: antiquewhite;
-}
+} */
