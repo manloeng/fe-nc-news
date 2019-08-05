@@ -4,9 +4,8 @@ const request = axios.create({
 	baseURL: 'https://project-nc-news.herokuapp.com/api'
 });
 
-export const fetchArticleData = (url) => {
-	console.log(url, '<--- fetching via url');
-	return request.get('/articles').then(({ data }) => {
+export const fetchArticleData = (article_id = '') => {
+	return request.get(`/articles/${article_id}`).then(({ data }) => {
 		return data;
 	});
 };
