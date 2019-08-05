@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
 import { Router } from '@reach/router';
 import ArticleList from './components/ArticleList/ArticleList';
+import Article from './components/ArticleList/Article';
 
 class App extends Component {
 	state = {
@@ -23,7 +24,6 @@ class App extends Component {
 
 	render() {
 		const { topicsData } = this.state;
-		console.log(topicsData);
 		return (
 			topicsData && (
 				<div className="App">
@@ -36,6 +36,7 @@ class App extends Component {
 								<Header />
 								<Router>
 									<ArticleList path="/" />
+									<Article path="/:article_id" />
 								</Router>
 							</Col>
 						</Row>
