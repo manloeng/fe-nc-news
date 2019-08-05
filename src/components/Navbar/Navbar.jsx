@@ -19,7 +19,7 @@ const Navbar = ({ topicsData: { topics } }) => {
 					return (
 						<Row key={topic.slug}>
 							<li>
-								<Link to={`/${topic.slug}`}>{formattedSlug}</Link>
+								<Link to={`/explore/${topic.slug}`}>{formattedSlug}</Link>
 							</li>
 						</Row>
 					);
