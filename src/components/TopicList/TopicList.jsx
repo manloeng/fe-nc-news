@@ -8,8 +8,8 @@ const TopicList = ({ topicsData }) => {
 			<figure>
 				{topicsData.topics.map((topic) => {
 					return (
-						<li>
-							<Link to={`/explore/${topic.slug}`} key={topic.slug}>
+						<li key={topic.slug}>
+							<Link to={`/explore/${topic.slug}`}>
 								<h2>{topic.slug}</h2>
 								<img />
 								<figcaption>{topic.description}</figcaption>
