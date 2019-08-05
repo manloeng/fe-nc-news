@@ -15,5 +15,6 @@ ul {
 }
 
 #profile {
-	height: 20vh;
+	height: 10vh;
+	margin: 1em;
 }

@@ -3,10 +3,12 @@ import Row from 'react-bootstrap/Row';
 import './Navbar.css';
 import { Link } from '@reach/router';
 
-const Navbar = ({ topicsData: { topics } }) => {
+const Navbar = ({ topicsData: { topics }, user }) => {
 	return (
 		<nav id="navbar">
-			<Row id="profile" />
+			<Row id="profile">
+				<Link to={`/users/${user}`}>{user}</Link>
+			</Row>
 			<Row>
 				<Link to="/">Home</Link>
 			</Row>
