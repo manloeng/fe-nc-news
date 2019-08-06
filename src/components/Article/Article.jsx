@@ -8,7 +8,7 @@ class Article extends Component {
 	};
 
 	componentDidMount() {
-		api.fetchArticleData(this.props.article_id).then(({ article }) => {
+		api.fetchArticleDataByArticleId(this.props.article_id).then(({ article }) => {
 			this.setState({ articleData: article });
 		});
 	}
