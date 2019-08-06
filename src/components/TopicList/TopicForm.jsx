@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Form from 'react-bootstrap/Form';
 import * as api from '../api';
 
 class TopicForm extends Component {
@@ -28,23 +29,31 @@ class TopicForm extends Component {
 
 	render() {
 		return (
-			<form id="topicInput" onSubmit={this.handleSubmit}>
-				<label>
-					Topic:
-					<input type="text" name="topicSlug" placeholder="Enter Topic" onChange={this.handleChange} required />
-				</label>
-				<label>
-					Topic Description:
-					<input
+			<Form id="topicInput" onSubmit={this.handleSubmit}>
+				<Form.Group controlId="exampleForm.ControlInput1">
+					<Form.Label>Topic Title: </Form.Label>
+					<Form.Control
 						type="text"
+						placeholder="Enter Topic Title"
+						name="topicTitle"
+						onChange={this.handleChange}
+						required
+					/>
+				</Form.Group>
+
+				<Form.Group controlId="exampleForm.ControlTextarea1">
+					<Form.Label>Topic Description: </Form.Label>
+					<Form.Control
+						as="textarea"
+						rows="3"
 						name="topicDescription"
 						placeholder="Enter Topic Description"
 						onChange={this.handleChange}
 						required
 					/>
-				</label>
+				</Form.Group>
 				<input type="submit" />
-			</form>
+			</Form>
 		);
 	}
 }
