@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import './ArticleForm.css';
 import * as api from '../api';
 
@@ -20,7 +21,6 @@ class ArticleForm extends Component {
 	};
 
 	handleSubmit = (e) => {
-		// console.log(this.state.topicInput);
 		const { updateArticlesList, user } = this.props;
 		e.preventDefault();
 		const { ...restOfState } = this.state;
@@ -71,7 +71,9 @@ class ArticleForm extends Component {
 						required
 					/>
 				</Form.Group>
-				<input type="submit" />
+				<Button variant="primary" type="submit">
+					Submit
+				</Button>
 			</Form>
 		);
 	}
