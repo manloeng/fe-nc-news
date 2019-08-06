@@ -6,12 +6,16 @@ const ErrorPage = ({ msg, status }) => {
 			<p>
 				<em>Oops! You landed on an Error!</em>
 			</p>
-			<p>
-				<em>Status: {status}</em>
-			</p>
-			<p>
-				<em>{msg}...</em>
-			</p>
+			{msg && (
+				<p>
+					<em>Status: {status}</em>
+				</p>
+			)}
+			{status && (
+				<p>
+					<em>{msg}...</em>
+				</p>
+			)}
 		</div>
 	);
 };
