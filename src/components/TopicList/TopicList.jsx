@@ -2,33 +2,16 @@ import React, { Component } from 'react';
 import './TopicList.css';
 import { Link } from '@reach/router';
 import TopicForm from './TopicForm';
-import * as api from '../api';
 
 class TopicList extends Component {
-	state = {
-		topicSlug: null,
-		topicDescription: null,
-		display: false
-	};
-
-	componentDidUpdate(prevProp, prevState) {
-		if (prevState.topicSlug !== this.state.topicSlug) {
-			const { display, ...restOfState } = this.state;
-			api.postTopicsData(restOfState).then((data) => {
-				console.log(data);
-				// invoke func in app to set state
-			});
-		}
-	}
-
 	render() {
-		const { topicsData } = this.props;
+		const { topicsData, updateTopicsList } = this.props;
 		return !topicsData ? (
 			<p>loading...</p>
 		) : (
 			<section id="topicSection">
 				<figure>
-					<TopicForm fetchInputs={this.fetchInputs} />
+					<TopicForm updateTopicsList={updateTopicsList} />
 					{topicsData.topics.map((topic) => {
 						return (
 							<li key={topic.slug}>
@@ -44,9 +27,5 @@ class TopicList extends Component {
 			</section>
 		);
 	}
-
-	fetchInputs = (inputs) => {
-		this.setState(inputs);
-	};
 }
 export default TopicList;

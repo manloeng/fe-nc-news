@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import './Navbar.css';
 import { Link } from '@reach/router';
 
-const Navbar = ({ topicsData: { topics }, user }) => {
+const Navbar = ({ topicsData, user }) => {
 	return (
 		<nav id="navbar">
 			<Row id="profile">
@@ -16,7 +16,7 @@ const Navbar = ({ topicsData: { topics }, user }) => {
 				<Link to="/explore">Explore</Link>
 			</Row>
 			<ul>
-				{topics.map((topic) => {
+				{topicsData.map((topic) => {
 					const formattedSlug = topic.slug[0].toUpperCase() + topic.slug.slice(1);
 					return (
 						<Row key={topic.slug}>

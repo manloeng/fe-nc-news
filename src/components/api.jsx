@@ -13,19 +13,19 @@ export const fetchArticleData = () => {
 
 export const fetchArticleDataByArticleId = (article_id) => {
 	return request.get(`/articles/${article_id}`).then(({ data }) => {
-		return data;
+		return data.article;
 	});
 };
 
 export const fetchTopicsData = () => {
 	return request.get('/topics').then(({ data }) => {
-		return data;
+		return data.topics;
 	});
 };
 
 export const fetchUsersData = (username) => {
 	return request.get(`/users/${username}`).then(({ data }) => {
-		return data;
+		return data.user;
 	});
 };
 

@@ -8,8 +8,8 @@ class User extends Component {
 	};
 
 	componentDidMount() {
-		api.fetchUsersData(this.props.username).then((data) => {
-			this.setState({ userData: data });
+		api.fetchUsersData(this.props.username).then((user) => {
+			this.setState({ userData: user });
 		});
 	}
 
@@ -19,9 +19,9 @@ class User extends Component {
 			<p>loading...</p>
 		) : (
 			<figure id="userProfile">
-				<img src={userData.user.avatar_url} alt="users avatar" />
-				<p>Username: {userData.user.username}</p>
-				<p>Name: {userData.user.name}</p>
+				<img src={userData.avatar_url} alt="users avatar" />
+				<p>Username: {userData.username}</p>
+				<p>Name: {userData.name}</p>
 			</figure>
 		);
 	}

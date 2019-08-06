@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
+import * as api from '../api';
 
 class TopicForm extends Component {
 	state = {
 		topicSlug: null,
 		topicDescription: null
+	};
+
+	handleChange = (e) => {
+		const { name, value } = e.target;
+		this.setState({ [name]: value });
+	};
+
+	handleSubmit = (e) => {
+		e.preventDefault();
+		const { updateTopicsList } = this.props;
+		const { ...restOfState } = this.state;
+		api
+			.postTopicsData(restOfState)
+			.then(() => {
+				return api.fetchTopicsData();
+			})
+			.then((data) => {
+				updateTopicsList(data);
+			});
 	};
 
 	render() {
@@ -27,16 +47,6 @@ class TopicForm extends Component {
 			</form>
 		);
 	}
-
-	handleChange = (e) => {
-		const { name, value } = e.target;
-		this.setState({ [name]: value });
-	};
-
-	handleSubmit = (e) => {
-		e.preventDefault();
-		this.props.fetchInputs(this.state);
-	};
 }
 
 export default TopicForm;
