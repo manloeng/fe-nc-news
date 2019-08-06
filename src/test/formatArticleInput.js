@@ -1,4 +1,4 @@
-const formatArticleInput = (input) => {
+const formatArticleInput = (input, username) => {
 	if (!Object.keys(input).length) return {};
 	const { articleTitle, topicInput, articleDescription, ...restOfTheArticleBody } = input;
 	if (articleTitle) {
@@ -9,6 +9,9 @@ const formatArticleInput = (input) => {
 	}
 	if (articleDescription) {
 		restOfTheArticleBody.body = articleDescription;
+	}
+	if (username) {
+		restOfTheArticleBody.username = username;
 	}
 	return restOfTheArticleBody;
 };
