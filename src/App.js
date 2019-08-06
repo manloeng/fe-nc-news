@@ -20,13 +20,19 @@ class App extends Component {
 	};
 
 	componentDidMount() {
-		api.fetchTopicsData().then((data) => {
-			this.setState({ topicsData: data });
+		api.fetchTopicsData().then((topics) => {
+			this.setState({ topicsData: topics });
 		});
 	}
 
+	componentDidUpdate(prevProp, prevState) {}
+
+	updateTopicsList = (data) => {
+		this.setState({ topicsData: data });
+	};
+
 	render() {
-		const { topicsData, user, userData } = this.state;
+		const { topicsData, user } = this.state;
 		return !topicsData ? (
 			<p>loading...</p>
 		) : (
@@ -39,9 +45,14 @@ class App extends Component {
 						<Col xs={8}>
 							<Header />
 							<Router>
-								<TopicList path="/explore" topicsData={topicsData} user={user} updateTopicList={this.updateTopicList} />
-								<ArticleList path="/" />
-								<ArticleList path="/articles" />
+								<TopicList
+									path="/explore"
+									topicsData={topicsData}
+									user={user}
+									updateTopicsList={this.updateTopicsList}
+								/>
+								<ArticleList path="/" user={user} topicsData={topicsData} />
+								<ArticleList path="/articles" user={user} topicsData={topicsData} />
 								<Article path="/articles/:article_id" />
 								<User path="/users/:username" />
 							</Router>
@@ -51,8 +62,6 @@ class App extends Component {
 			</div>
 		);
 	}
-
-	updateTopicList() {}
 }
 
 export default App;
