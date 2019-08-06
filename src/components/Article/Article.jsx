@@ -44,7 +44,6 @@ class Article extends Component {
 							<p>Comment Cout: {articleData.comment_count}</p>
 						</li>
 					</ul>
-					{console.log(user)}
 					{user === articleData.author && (
 						<Button variant="danger" onClick={this.handleClick}>
 							Delete Article
