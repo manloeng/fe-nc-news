@@ -32,30 +32,32 @@ class App extends Component {
 
 	render() {
 		const { topicsData, user, userData } = this.state;
-		return (
-			topicsData && (
-				<div className="App">
-					<Container>
-						<Row>
-							<Col xs={4}>
-								<Navbar topicsData={topicsData} user={user} />
-							</Col>
-							<Col xs={8}>
-								<Header />
-								<Router>
-									<TopicList path="/explore" topicsData={topicsData} user={user} />
-									<ArticleList path="/" />
-									<ArticleList path="/articles" />
-									<Article path="/articles/:article_id" />
-									<User path="/users/:username" userData={userData} />
-								</Router>
-							</Col>
-						</Row>
-					</Container>
-				</div>
-			)
+		return !topicsData ? (
+			<p>loading...</p>
+		) : (
+			<div className="App">
+				<Container>
+					<Row>
+						<Col xs={4}>
+							<Navbar topicsData={topicsData} user={user} />
+						</Col>
+						<Col xs={8}>
+							<Header />
+							<Router>
+								<TopicList path="/explore" topicsData={topicsData} user={user} updateTopicList={this.updateTopicList} />
+								<ArticleList path="/" />
+								<ArticleList path="/articles" />
+								<Article path="/articles/:article_id" />
+								<User path="/users/:username" userData={userData} />
+							</Router>
+						</Col>
+					</Row>
+				</Container>
+			</div>
 		);
 	}
+
+	updateTopicList() {}
 }
 
 export default App;
