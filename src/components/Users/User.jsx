@@ -8,10 +8,14 @@ class User extends Component {
 	};
 
 	componentDidMount() {
-		api.fetchUsersData(this.props.username).then((user) => {
+		this.fetchUsersData();
+	}
+
+	fetchUsersData = () => {
+		api.getUsersData(this.props.username).then((user) => {
 			this.setState({ userData: user });
 		});
-	}
+	};
 
 	render() {
 		const { userData } = this.state;

@@ -30,7 +30,7 @@ export const getTopicsData = () => {
 	});
 };
 
-export const fetchUsersData = (username) => {
+export const getUsersData = (username) => {
 	return request.get(`/users/${username}`).then(({ data }) => {
 		return data.user;
 	});
