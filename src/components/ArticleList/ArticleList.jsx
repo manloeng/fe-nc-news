@@ -10,10 +10,14 @@ class ArticleList extends Component {
 	};
 
 	componentDidMount() {
-		api.fetchArticleData().then((data) => {
+		this.fetchArticleData();
+	}
+
+	fetchArticleData = () => {
+		api.getArticleData().then((data) => {
 			this.setState({ articleListData: data });
 		});
-	}
+	};
 
 	updateArticlesList = (article) => {
 		this.setState((currentState) => {
