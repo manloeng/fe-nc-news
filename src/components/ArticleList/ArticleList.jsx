@@ -16,16 +16,16 @@ class ArticleList extends Component {
 
 	render() {
 		const { articleListData } = this.state;
-		return (
-			articleListData && (
-				<section id="articleCardSection">
-					<article>
-						{articleListData.articles.map((article) => {
-							return <ArticleCard article={article} key={article.article_id} />;
-						})}
-					</article>
-				</section>
-			)
+		return !articleListData ? (
+			<p>loading...</p>
+		) : (
+			<section id="articleCardSection">
+				<article>
+					{articleListData.articles.map((article) => {
+						return <ArticleCard article={article} key={article.article_id} />;
+					})}
+				</article>
+			</section>
 		);
 	}
 }
