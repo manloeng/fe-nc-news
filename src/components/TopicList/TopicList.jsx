@@ -23,25 +23,25 @@ class TopicList extends Component {
 
 	render() {
 		const { topicsData } = this.props;
-		return (
-			topicsData && (
-				<section id="topicSection">
-					<figure>
-						<TopicForm fetchInputs={this.fetchInputs} />
-						{topicsData.topics.map((topic) => {
-							return (
-								<li key={topic.slug}>
-									<Link to={`/explore/${topic.slug}`}>
-										<h2>{topic.slug}</h2>
-										<img />
-										<figcaption>{topic.description}</figcaption>
-									</Link>
-								</li>
-							);
-						})}
-					</figure>
-				</section>
-			)
+		return !topicsData ? (
+			<p>loading...</p>
+		) : (
+			<section id="topicSection">
+				<figure>
+					<TopicForm fetchInputs={this.fetchInputs} />
+					{topicsData.topics.map((topic) => {
+						return (
+							<li key={topic.slug}>
+								<Link to={`/explore/${topic.slug}`}>
+									<h2>{topic.slug}</h2>
+									<img />
+									<figcaption>{topic.description}</figcaption>
+								</Link>
+							</li>
+						);
+					})}
+				</figure>
+			</section>
 		);
 	}
 
