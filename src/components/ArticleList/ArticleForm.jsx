@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Dropdown from 'react-bootstrap/Dropdown';
+import Form from 'react-bootstrap/Form';
+import './ArticleForm.css';
+import * as api from '../api';
 
 class ArticleForm extends Component {
 	state = {
@@ -18,55 +20,49 @@ class ArticleForm extends Component {
 	};
 
 	handleSubmit = (e) => {
+		const { updateArticlesList } = this.props;
 		e.preventDefault();
-		console.log(this.state);
 	};
 
 	render() {
 		const { topicsData } = this.props;
-		const { titleInput, topicInput, bodyInput } = this.state;
 		return (
-			<form id="articleInput" onSubmit={this.handleSubmit}>
-				<label>
-					Article Title:
-					<input
+			<Form id="articleInput" onSubmit={this.handleSubmit}>
+				<Form.Group controlId="exampleForm.ControlInput1">
+					<Form.Label>Article Title: </Form.Label>
+					<Form.Control
 						type="text"
-						name="articleTitle"
 						placeholder="Enter Article Title"
+						name="articleTitle"
 						onChange={this.handleChange}
 						required
 					/>
-				</label>
-				<label>
-					<Dropdown>
-						<Dropdown.Toggle variant="secondary" id="dropdown-basic">
-							{topicInput}
-						</Dropdown.Toggle>
-
-						<Dropdown.Menu>
-							{topicsData.map((topic) => {
-								return (
-									<Dropdown.Item key={topic.slug} onClick={this.handleClick}>
-										{topic.slug}
-									</Dropdown.Item>
-								);
-							})}
-						</Dropdown.Menu>
-					</Dropdown>
-				</label>
-				<label>
-					Article Description:
-					<input
-						type="text"
+				</Form.Group>
+				<Form.Group controlId="exampleForm.ControlSelect1">
+					<Form.Label>Select Topic</Form.Label>
+					<Form.Control as="select">
+						{topicsData.map((topic) => {
+							return (
+								<option key={topic.slug} onClick={this.handleClick}>
+									{topic.slug}
+								</option>
+							);
+						})}
+					</Form.Control>
+				</Form.Group>
+				<Form.Group controlId="exampleForm.ControlTextarea1">
+					<Form.Label>Article Description: </Form.Label>
+					<Form.Control
+						as="textarea"
+						rows="3"
 						name="articleDescription"
 						placeholder="Enter Article Description"
 						onChange={this.handleChange}
 						required
 					/>
-				</label>
-
+				</Form.Group>
 				<input type="submit" />
-			</form>
+			</Form>
 		);
 	}
 }
