@@ -25,7 +25,7 @@ describe('formatArticleInput', () => {
 			articleDescription: 'coding is cool'
 		};
 		const expected = formatArticleInput(input);
-		expect(expected).toEqual({ description: 'coding is cool' });
+		expect(expected).toEqual({ body: 'coding is cool' });
 	});
 	it('returns and formatted object when passed with an object with all the keys', () => {
 		const input = {
@@ -34,6 +34,6 @@ describe('formatArticleInput', () => {
 			articleDescription: 'coding is cool'
 		};
 		const expected = formatArticleInput(input);
-		expect(expected).toEqual({ topic: 'coding', description: 'coding is cool', title: 'coders' });
+		expect(expected).toEqual({ topic: 'coding', body: 'coding is cool', title: 'coders' });
 	});
 });

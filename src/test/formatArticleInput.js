@@ -8,7 +8,7 @@ const formatArticleInput = (input) => {
 		restOfTheArticleBody.topic = topicInput;
 	}
 	if (articleDescription) {
-		restOfTheArticleBody.description = articleDescription;
+		restOfTheArticleBody.body = articleDescription;
 	}
 	return restOfTheArticleBody;
 };
