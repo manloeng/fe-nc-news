@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import * as api from '../api';
 
 class TopicForm extends Component {
@@ -52,7 +53,9 @@ class TopicForm extends Component {
 						required
 					/>
 				</Form.Group>
-				<input type="submit" />
+				<Button variant="primary" type="submit">
+					Submit
+				</Button>
 			</Form>
 		);
 	}
