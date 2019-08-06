@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button';
 import * as api from '../api';
 import './Article.css';
 
@@ -17,8 +18,14 @@ class Article extends Component {
 		});
 	};
 
+	handleClick = (e) => {
+		const { article_id } = this.props;
+		api.deleteArticleByArticleId(article_id);
+	};
+
 	render() {
 		const { articleData } = this.state;
+		const { user } = this.props;
 		return (
 			articleData && (
 				<section className="article">
@@ -37,6 +44,12 @@ class Article extends Component {
 							<p>Comment Cout: {articleData.comment_count}</p>
 						</li>
 					</ul>
+					{console.log(user)}
+					{user === articleData.author && (
+						<Button variant="danger" onClick={this.handleClick}>
+							Delete Article
+						</Button>
+					)}
 				</section>
 			)
 		);
