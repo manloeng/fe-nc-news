@@ -13,18 +13,27 @@ describe('formatArticleInput', () => {
 		const expected = formatArticleInput(input);
 		expect(expected).toEqual({ title: 'coders' });
 	});
-	it('returns and formatted object when passed with an object with articleTitle', () => {
+	it('returns and formatted object when passed with an object with topicInput', () => {
 		const input = {
 			topicInput: 'coding'
 		};
 		const expected = formatArticleInput(input);
 		expect(expected).toEqual({ topic: 'coding' });
 	});
-	it('returns and formatted object when passed with an object with articleTitle', () => {
+	it('returns and formatted object when passed with an object with articleDescription', () => {
 		const input = {
 			articleDescription: 'coding is cool'
 		};
 		const expected = formatArticleInput(input);
 		expect(expected).toEqual({ description: 'coding is cool' });
+	});
+	it('returns and formatted object when passed with an object with all the keys', () => {
+		const input = {
+			articleTitle: 'coders',
+			topicInput: 'coding',
+			articleDescription: 'coding is cool'
+		};
+		const expected = formatArticleInput(input);
+		expect(expected).toEqual({ topic: 'coding', description: 'coding is cool', title: 'coders' });
 	});
 });
