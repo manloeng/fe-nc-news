@@ -6,4 +6,9 @@ describe('formatTopicInput', () => {
 		const expected = formatTopicInput(input);
 		expect(expected).toEqual({});
 	});
+	it('returns and formatted object when passed with an object with a topic slug', () => {
+		const input = { topicSlug: 'coding' };
+		const expected = formatTopicInput(input);
+		expect(expected).toEqual({ slug: 'coding' });
+	});
 });
