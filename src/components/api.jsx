@@ -18,6 +18,12 @@ export const fetchArticleDataByArticleId = (article_id) => {
 	});
 };
 
+export const fetchArticleDataByTopicSlug = (topic_slug) => {
+	return request.get(`/articles`, { params: { topic: topic_slug } }).then(({ data }) => {
+		return data.articles;
+	});
+};
+
 export const fetchTopicsData = () => {
 	return request.get('/topics').then(({ data }) => {
 		return data.topics;
