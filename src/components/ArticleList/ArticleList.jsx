@@ -3,10 +3,12 @@ import './ArticleList.css';
 import ArticleCard from './ArticleCard';
 import * as api from '../api';
 import ArticleForm from './ArticleForm';
+import ErrorPage from '../ErrorPage';
 
 class ArticleList extends Component {
 	state = {
-		articleListData: null
+		articleListData: null,
+		err: null
 	};
 
 	componentDidMount() {
@@ -14,9 +16,15 @@ class ArticleList extends Component {
 	}
 
 	fetchArticleData = () => {
-		api.getArticleData().then((data) => {
-			this.setState({ articleListData: data });
-		});
+		api
+			.getArticleData()
+			.then((data) => {
+				this.setState({ articleListData: data });
+			})
+			.catch((err) => {
+				const { status, data } = err.response;
+				this.setState({ err: { status, msg: data.msg } });
+			});
 	};
 
 	updateArticlesList = (article) => {
@@ -31,9 +39,9 @@ class ArticleList extends Component {
 	};
 
 	render() {
-		const { articleListData } = this.state;
+		const { articleListData, err } = this.state;
 		const { user, topicsData } = this.props;
-
+		if (err) return <ErrorPage {...err} />;
 		return !articleListData ? (
 			<p>loading...</p>
 		) : (

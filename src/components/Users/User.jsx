@@ -6,7 +6,7 @@ import './user.css';
 class User extends Component {
 	state = {
 		userData: null,
-		error: null
+		err: null
 	};
 
 	componentDidMount() {
