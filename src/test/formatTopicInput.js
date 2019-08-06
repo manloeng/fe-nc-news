@@ -10,4 +10,4 @@ const formatTopicInput = (input) => {
 	return restOfTheBody;
 };
 
-module.exports = formatTopicInput;
+export default formatTopicInput;
