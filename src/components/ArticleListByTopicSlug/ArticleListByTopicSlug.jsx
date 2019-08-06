@@ -24,7 +24,7 @@ class ArticleListByTopicSlug extends Component {
 		api
 			.getArticleDataByTopicSlug(topic_slug)
 			.then((articles) => {
-				this.setState({ articleDataByTopicSlug: articles });
+				this.setState({ articleDataByTopicSlug: articles, err: null });
 			})
 			.catch((err) => {
 				const { status, data } = err.response;
