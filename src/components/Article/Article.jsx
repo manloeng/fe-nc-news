@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import * as api from '../api';
 import './Article.css';
+import ErrorPage from '../ErrorPage';
 
 class Article extends Component {
 	state = {
-		articleData: null
+		articleData: null,
+		err: null
 	};
 
 	componentDidMount() {
@@ -13,9 +15,15 @@ class Article extends Component {
 	}
 
 	fetchArticleDataByArticleId = () => {
-		api.getArticleDataByArticleId(this.props.article_id).then((article) => {
-			this.setState({ articleData: article });
-		});
+		api
+			.getArticleDataByArticleId(this.props.article_id)
+			.then((article) => {
+				this.setState({ articleData: article });
+			})
+			.catch((err) => {
+				const { status, data } = err.response;
+				this.setState({ err: { status, msg: data.msg } });
+			});
 	};
 
 	handleClick = (e) => {
@@ -24,8 +32,10 @@ class Article extends Component {
 	};
 
 	render() {
-		const { articleData } = this.state;
+		const { articleData, err } = this.state;
 		const { user } = this.props;
+
+		if (err) return <ErrorPage />;
 		return (
 			articleData && (
 				<section className="article">
