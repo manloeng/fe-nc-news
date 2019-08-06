@@ -20,10 +20,11 @@ describe('formatArticleInput', () => {
 		const expected = formatArticleInput(input);
 		expect(expected).toEqual({ topic: 'coding' });
 	});
+	it('returns and formatted object when passed with an object with articleTitle', () => {
+		const input = {
+			articleDescription: 'coding is cool'
+		};
+		const expected = formatArticleInput(input);
+		expect(expected).toEqual({ description: 'coding is cool' });
+	});
 });
-
-// {
-//   articleTitle: null,
-//   topicInput: 'Select Topic',
-//   articleDescription: null
-// };
