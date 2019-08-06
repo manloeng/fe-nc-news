@@ -17,7 +17,7 @@ class TopicForm extends Component {
 		const { updateTopicsList } = this.props;
 		const { ...restOfState } = this.state;
 		api
-			.postTopicsData(restOfState)
+			.postTopicData(restOfState)
 			.then(() => {
 				return api.fetchTopicsData();
 			})
