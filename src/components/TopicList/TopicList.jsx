@@ -14,7 +14,10 @@ class TopicList extends Component {
 	componentDidUpdate(prevProp, prevState) {
 		if (prevState.topicSlug !== this.state.topicSlug) {
 			const { display, ...restOfState } = this.state;
-			api.postTopicsData(restOfState);
+			api.postTopicsData(restOfState).then((data) => {
+				console.log(data);
+				// invoke func in app to set state
+			});
 		}
 	}
 
