@@ -11,6 +11,7 @@ import ArticleList from './components/ArticleList/ArticleList';
 import Article from './components/Article/Article';
 import TopicList from './components/TopicList/TopicList';
 import User from './components/Users/User';
+import ArticleListByTopicSlug from './components/ArticleListByTopicSlug/ArticleListByTopicSlug';
 
 class App extends Component {
 	state = {
@@ -24,8 +25,6 @@ class App extends Component {
 			this.setState({ topicsData: topics });
 		});
 	}
-
-	componentDidUpdate(prevProp, prevState) {}
 
 	updateTopicsList = (data) => {
 		this.setState({ topicsData: data });
@@ -51,6 +50,7 @@ class App extends Component {
 									user={user}
 									updateTopicsList={this.updateTopicsList}
 								/>
+								<ArticleListByTopicSlug path="/explore/:topic_slug" />
 								<ArticleList path="/" user={user} topicsData={topicsData} />
 								<ArticleList path="/articles" user={user} topicsData={topicsData} />
 								<Article path="/articles/:article_id" />
