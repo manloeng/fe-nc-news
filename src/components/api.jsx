@@ -24,7 +24,7 @@ export const getArticleDataByTopicSlug = (topic_slug) => {
 	});
 };
 
-export const fetchTopicsData = () => {
+export const getTopicsData = () => {
 	return request.get('/topics').then(({ data }) => {
 		return data.topics;
 	});

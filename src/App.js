@@ -21,7 +21,12 @@ class App extends Component {
 	};
 
 	componentDidMount() {
-		api.fetchTopicsData().then((topics) => {
+		this.fetchTopicsData()
+	}
+	
+	fetchTopicsData = ()=> {
+		
+		api.getTopicsData().then((topics) => {
 			this.setState({ topicsData: topics });
 		});
 	}

@@ -20,7 +20,7 @@ class TopicForm extends Component {
 		api
 			.postTopicData(restOfState)
 			.then(() => {
-				return api.fetchTopicsData();
+				return api.getTopicsData();
 			})
 			.then((data) => {
 				updateTopicsList(data);
