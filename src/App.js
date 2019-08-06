@@ -12,6 +12,7 @@ import Article from './components/Article/Article';
 import TopicList from './components/TopicList/TopicList';
 import User from './components/Users/User';
 import ArticleListByTopicSlug from './components/ArticleListByTopicSlug/ArticleListByTopicSlug';
+import ErrorPage from './components/ErrorPage';
 
 class App extends Component {
 	state = {
@@ -59,6 +60,7 @@ class App extends Component {
 								<ArticleList path="/articles" user={user} topicsData={topicsData} />
 								<Article path="/articles/:article_id" user={user} />
 								<User path="/users/:username" />
+								<ErrorPage default />
 							</Router>
 						</Col>
 					</Row>
