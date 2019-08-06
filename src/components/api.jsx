@@ -1,6 +1,7 @@
 import axios from 'axios';
 import formatTopicInput from '../test/formatTopicInput';
 import formatArticleInput from '../test/formatArticleInput';
+import { navigate } from '@reach/router';
 
 const request = axios.create({
 	baseURL: 'https://project-nc-news.herokuapp.com/api'
@@ -47,5 +48,11 @@ export const postArticleData = (inputBody, user) => {
 	const formattedArticleInput = formatArticleInput(inputBody, user);
 	return request.post('/articles', formattedArticleInput).then(({ data }) => {
 		return data.article;
+	});
+};
+
+export const deleteArticleByArticleId = (article_id) => {
+	return request.delete(`/articles/${article_id}`).then(() => {
+		navigate('/');
 	});
 };
