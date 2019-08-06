@@ -15,19 +15,14 @@ import User from './components/Users/User';
 class App extends Component {
 	state = {
 		topicsData: null,
-		user: 'grumpy19',
-		userData: null
+		//user needs to be passed for validation
+		user: 'grumpy19'
 	};
 
 	componentDidMount() {
 		api.fetchTopicsData().then((data) => {
 			this.setState({ topicsData: data });
 		});
-		if (this.state.user) {
-			api.fetchUsersData(this.state.user).then((data) => {
-				this.setState({ userData: data });
-			});
-		}
 	}
 
 	render() {
@@ -48,7 +43,7 @@ class App extends Component {
 								<ArticleList path="/" />
 								<ArticleList path="/articles" />
 								<Article path="/articles/:article_id" />
-								<User path="/users/:username" userData={userData} />
+								<User path="/users/:username" />
 							</Router>
 						</Col>
 					</Row>
