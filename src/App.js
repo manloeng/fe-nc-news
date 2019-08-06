@@ -57,7 +57,7 @@ class App extends Component {
 								<ArticleListByTopicSlug path="/explore/:topic_slug" />
 								<ArticleList path="/" user={user} topicsData={topicsData} />
 								<ArticleList path="/articles" user={user} topicsData={topicsData} />
-								<Article path="/articles/:article_id" />
+								<Article path="/articles/:article_id" user={user} />
 								<User path="/users/:username" />
 							</Router>
 						</Col>
