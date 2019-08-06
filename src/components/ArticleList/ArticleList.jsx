@@ -15,6 +15,17 @@ class ArticleList extends Component {
 		});
 	}
 
+	updateArticlesList = (article) => {
+		this.setState((currentState) => {
+			return {
+				articleListData: {
+					total_count: currentState.total_count,
+					articles: [ article, ...currentState.articleListData.articles ]
+				}
+			};
+		});
+	};
+
 	render() {
 		const { articleListData } = this.state;
 		const { user, topicsData } = this.props;
@@ -24,7 +35,9 @@ class ArticleList extends Component {
 		) : (
 			<section id="articleCardSection">
 				<article>
-					{user ? <ArticleForm user={user} topicsData={topicsData} /> : null}
+					{user ? (
+						<ArticleForm user={user} topicsData={topicsData} updateArticlesList={this.updateArticlesList} />
+					) : null}
 					{articleListData.articles.map((article) => {
 						return <ArticleCard article={article} key={article.article_id} />;
 					})}

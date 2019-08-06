@@ -5,13 +5,13 @@ import * as api from '../api';
 
 class ArticleForm extends Component {
 	state = {
-		articleTitle: null,
-		topicInput: 'Select Topic',
-		articleDescription: null
+		articleTitle: '',
+		topicInput: '',
+		articleDescription: ''
 	};
 
-	handleClick = (e) => {
-		this.setState({ topicInput: e.target.text });
+	handleSelect = (e) => {
+		this.setState({ topicInput: e.target.value });
 	};
 
 	handleChange = (e) => {
@@ -20,11 +20,22 @@ class ArticleForm extends Component {
 	};
 
 	handleSubmit = (e) => {
-		const { updateArticlesList } = this.props;
+		// console.log(this.state.topicInput);
+		const { updateArticlesList, user } = this.props;
 		e.preventDefault();
+		const { ...restOfState } = this.state;
+		api.postArticleData(restOfState, user).then((article) => {
+			updateArticlesList(article);
+			this.setState({
+				articleTitle: '',
+				topicInput: '',
+				articleDescription: ''
+			});
+		});
 	};
 
 	render() {
+		const { articleTitle, topicInput, articleDescription } = this.state;
 		const { topicsData } = this.props;
 		return (
 			<Form id="articleInput" onSubmit={this.handleSubmit}>
@@ -35,18 +46,16 @@ class ArticleForm extends Component {
 						placeholder="Enter Article Title"
 						name="articleTitle"
 						onChange={this.handleChange}
+						value={articleTitle}
 						required
 					/>
 				</Form.Group>
 				<Form.Group controlId="exampleForm.ControlSelect1">
 					<Form.Label>Select Topic</Form.Label>
-					<Form.Control as="select">
+					<Form.Control as="select" onChange={this.handleSelect} value={topicInput}>
+						<option>Select Topic</option>
 						{topicsData.map((topic) => {
-							return (
-								<option key={topic.slug} onClick={this.handleClick}>
-									{topic.slug}
-								</option>
-							);
+							return <option key={topic.slug}>{topic.slug}</option>;
 						})}
 					</Form.Control>
 				</Form.Group>
@@ -58,6 +67,7 @@ class ArticleForm extends Component {
 						name="articleDescription"
 						placeholder="Enter Article Description"
 						onChange={this.handleChange}
+						value={articleDescription}
 						required
 					/>
 				</Form.Group>

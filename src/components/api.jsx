@@ -1,5 +1,6 @@
 import axios from 'axios';
 import formatTopicInput from '../test/formatTopicInput';
+import formatArticleInput from '../test/formatArticleInput';
 
 const request = axios.create({
 	baseURL: 'https://project-nc-news.herokuapp.com/api'
@@ -29,9 +30,16 @@ export const fetchUsersData = (username) => {
 	});
 };
 
-export const postTopicsData = (inputBody) => {
+export const postTopicData = (inputBody) => {
 	const formattedTopicInput = formatTopicInput(inputBody);
 	return request.post('/topics', formattedTopicInput).then(({ data }) => {
 		return data;
+	});
+};
+
+export const postArticleData = (inputBody, user) => {
+	const formattedArticleInput = formatArticleInput(inputBody, user);
+	return request.post('/articles', formattedArticleInput).then(({ data }) => {
+		return data.article;
 	});
 };
