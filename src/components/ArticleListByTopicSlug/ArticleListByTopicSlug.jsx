@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import ArticleCard from '../ArticleList/ArticleCard';
 import * as api from '../api';
+import ErrorPage from '../ErrorPage';
 
 class ArticleListByTopicSlug extends Component {
 	state = {
-		articleDataByTopicSlug: null
+		articleDataByTopicSlug: null,
+		err: null
 	};
 
 	componentDidMount() {
@@ -19,13 +21,20 @@ class ArticleListByTopicSlug extends Component {
 
 	fetchArticleDataByTopicSlug = () => {
 		const { topic_slug } = this.props;
-		api.getArticleDataByTopicSlug(topic_slug).then((articles) => {
-			this.setState({ articleDataByTopicSlug: articles });
-		});
+		api
+			.getArticleDataByTopicSlug(topic_slug)
+			.then((articles) => {
+				this.setState({ articleDataByTopicSlug: articles });
+			})
+			.catch((err) => {
+				const { status, data } = err.response;
+				this.setState({ err: { status, msg: data.msg } });
+			});
 	};
 
 	render() {
-		const { articleDataByTopicSlug } = this.state;
+		const { articleDataByTopicSlug, err } = this.state;
+		if (err) return <ErrorPage {...err} />;
 		return !articleDataByTopicSlug ? (
 			<p>loading</p>
 		) : (
