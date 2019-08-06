@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './TopicList.css';
-import { Link } from '@reach/router';
 import TopicForm from './TopicForm';
 import TopicCard from './TopicCard';
 
