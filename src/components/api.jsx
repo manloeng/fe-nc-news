@@ -12,7 +12,7 @@ export const fetchArticleData = () => {
 	});
 };
 
-export const fetchArticleDataByArticleId = (article_id) => {
+export const getArticleDataByArticleId = (article_id) => {
 	return request.get(`/articles/${article_id}`).then(({ data }) => {
 		return data.article;
 	});
