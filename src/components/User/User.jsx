@@ -15,7 +15,7 @@ class User extends Component {
 
 	fetchUsersData = () => {
 		api
-			.getUsersData(this.props.username)
+			.getUserData(this.props.username)
 			.then((user) => {
 				this.setState({ userData: user });
 			})
