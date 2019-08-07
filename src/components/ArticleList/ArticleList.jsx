@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './ArticleList.css';
 import ArticleCard from './ArticleCard';
 import * as api from '../api';
-import ArticleForm from './ArticleForm';
+import ArticleForm from '../ArticleForm/ArticleForm';
 import ErrorPage from '../ErrorPage';
 
 class ArticleList extends Component {
