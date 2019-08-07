@@ -3,6 +3,7 @@ import * as api from '../api';
 import ErrorPage from '../ErrorPage';
 import './user.css';
 import Header from '../Header/Header';
+import Image from 'react-bootstrap/Image'
 
 class User extends Component {
 	state = {
@@ -37,7 +38,7 @@ class User extends Component {
 			<>
 			<Header route={username}/>
 			<figure id="userProfile">
-				<img src={userData.avatar_url} alt="users avatar" />
+				<Image src={userData.avatar_url} alt="users avatar" fluid />
 				<p>Username: {userData.username}</p>
 				<p>Name: {userData.name}</p>
 			</figure>
