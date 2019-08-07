@@ -36,6 +36,9 @@ class ArticleListByTopicSlug extends Component {
 		const { articleDataByTopicSlug, err } = this.state;
 		const { topic_slug } = this.props;
 
+		// need to add some sort of comments
+		if (!articleDataByTopicSlug) return <Header route={topic_slug} />;
+
 		return !articleDataByTopicSlug ? (
 			<p>loading</p>
 		) : (
