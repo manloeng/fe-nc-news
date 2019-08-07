@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as api from '../api';
 import ErrorPage from '../ErrorPage';
 import UserCard from './UserCard';
+import Header from '../Header/Header';
 
 class UsersList extends Component {
 	state = {
@@ -27,13 +28,17 @@ class UsersList extends Component {
 
 	render() {
 		const { usersList, err } = this.state;
+		const {path} = this.props
 		if (err) return <ErrorPage {...err} />;
 		return !usersList ? (
 			<p>loading...</p>
 		) : (
-			usersList.map((user) => {
+			<>
+			<Header route={path}/>
+			{usersList.map((user) => {
 				return <UserCard {...user} key={user.username} />;
-			})
+			})}
+			</>
 		);
 	}
 }
