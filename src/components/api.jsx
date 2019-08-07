@@ -62,3 +62,9 @@ export const deleteArticleByArticleId = (article_id) => {
 		navigate('/');
 	});
 };
+
+export const deleteCommentByCommentId = (comment_id, article_id) => {
+	return request.delete(`/comments/${comment_id}`).then(() => {
+		return getCommentDataByArticleId(article_id);
+	});
+};
