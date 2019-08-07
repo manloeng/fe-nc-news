@@ -1,10 +1,11 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
+import './ArticleSorter.css';
 
 const ArticleSorter = ({ handleChange, sort_by, order }) => {
 	return (
-		<Form>
+		<Form id="sorterForm">
 			<Form.Row>
 				<Form.Group as={Col} controlId="sort_by">
 					<Form.Label>Sort By:</Form.Label>
