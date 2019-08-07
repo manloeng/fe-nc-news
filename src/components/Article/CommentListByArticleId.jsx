@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './CommentListByArticleId.css';
-import Button from 'react-bootstrap/Button';
 import * as api from '../api';
 import CommentForm from './CommentForm';
+import CommentData from './CommentData';
 
 class CommentListByArticleId extends Component {
 	state = {
@@ -50,21 +50,7 @@ class CommentListByArticleId extends Component {
 						<ul>
 							<CommentForm updateCommentList={this.updateCommentList} user={user} article_id={article_id} />
 							{commentListData.map((comment) => {
-								return (
-									<li key={comment.comment_id} id="comment">
-										<p>By: {comment.author}</p>
-										<br />
-										<p>{comment.body}</p>
-										<br />
-										<p>Created at: {comment.created_at}</p>
-										<p>Votes: {comment.votes}</p>
-										{user === comment.author && (
-											<Button variant="danger" onClick={this.handleClick} name={comment.comment_id}>
-												Delete Comment
-											</Button>
-										)}
-									</li>
-								);
+								return <CommentData {...comment} user={user} key={comment.comment_id} />;
 							})}
 						</ul>
 					)}
