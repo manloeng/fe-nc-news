@@ -44,7 +44,7 @@ class CommentListByArticleId extends Component {
 		) : (
 			<section>
 				<article id="commentListByArticleId">
-					<CommentForm updateCommentList={this.updateCommentList} user={user} article_id={article_id} />
+					{user && <CommentForm updateCommentList={this.updateCommentList} user={user} article_id={article_id} />}
 					{!commentListData.length ? (
 						<p>No comments available</p>
 					) : (
