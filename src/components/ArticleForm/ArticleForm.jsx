@@ -24,20 +24,29 @@ class ArticleForm extends Component {
 		const { updateArticlesList, user } = this.props;
 		e.preventDefault();
 		const { ...restOfState } = this.state;
-		api.postArticleData(restOfState, user).then((article) => {
-			updateArticlesList(article);
-			this.setState({
-				articleTitle: '',
-				topicInput: '',
-				articleDescription: ''
+		api
+			.postArticleData(restOfState, user)
+			.then((article) => {
+				updateArticlesList(article);
+				this.setState({
+					articleTitle: '',
+					topicInput: '',
+					articleDescription: ''
+				});
+			})
+			.catch((err) => {
+				const { status, data } = err.response;
+				this.setState({ err: { status, msg: data.msg } });
 			});
-		});
 	};
 
 	render() {
-		const { articleTitle, topicInput, articleDescription } = this.state;
+		const { articleTitle, topicInput, articleDescription, err } = this.state;
 		const { topicsData } = this.props;
+
 		return (
+			<>
+			{err && <p>Please Select Topic!</p>}
 			<Form id="articleInput" onSubmit={this.handleSubmit}>
 				<Form.Group controlId="exampleForm.ControlInput1">
 					<Form.Label>Article Title: </Form.Label>
@@ -75,6 +84,7 @@ class ArticleForm extends Component {
 					Submit
 				</Button>
 			</Form>
+			</>
 		);
 	}
 }
