@@ -36,19 +36,19 @@ class ArticleListByTopicSlug extends Component {
 		const { articleDataByTopicSlug, err } = this.state;
 		const { topic_slug } = this.props;
 
-		// need to add some sort of comments
-		if (!articleDataByTopicSlug) return <Header route={topic_slug} />;
-
-		return !articleDataByTopicSlug ? (
-			<p>loading</p>
-		) : (
+		return (
 			<section>
 				<Header route={topic_slug} />
 				{err && <p>No Articles Found</p>}
-				{!err &&
+
+				{!articleDataByTopicSlug && !err ? (
+					<p>loading</p>
+				) : (
+					!err &&
 					articleDataByTopicSlug.map((article) => {
 						return <ArticleCard article={article} key={article.article_id} />;
-					})}
+					})
+				)}
 			</section>
 		);
 	}
