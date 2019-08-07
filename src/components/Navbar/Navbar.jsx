@@ -8,10 +8,18 @@ import Dropdown from 'react-bootstrap/Dropdown';
 const Navbar = ({ topicsData, user }) => {
 	return (
 		<nav id="navbar">
-			<Row id="profile">
-				<Link to={`/users/${user}`}>{user}</Link>
-			</Row>
+			{user ? (
+				<Row id="profile">
+					<Link to={`/users/${user}`}>{user}</Link>
+				</Row>
+			) : (
+				<Row id="profile">
+					<i class="fa fa-user-circle-o fa-4x" aria-hidden="true" />
+					<p>Sign In!</p>
+				</Row>
+			)}
 			<Row>
+				<i class="fa fa-home fa-4x" aria-hidden="true" />
 				<Link to="/">Home</Link>
 			</Row>
 			<Row>
@@ -47,6 +55,11 @@ const Navbar = ({ topicsData, user }) => {
 						);
 					})}
 				</SplitButton>
+			</Row>
+			<Row className="addPost">
+				<button>
+					<i className="fa fa-plus-circle fa-3x" aria-hidden="true" />
+				</button>
 			</Row>
 		</nav>
 	);
