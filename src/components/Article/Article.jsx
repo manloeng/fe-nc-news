@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import * as api from '../api';
 import './Article.css';
 import ErrorPage from '../ErrorPage';
+import CommentListByArticleId from './CommentListByArticleId';
 
 class Article extends Component {
 	state = {
@@ -33,7 +34,7 @@ class Article extends Component {
 
 	render() {
 		const { articleData, err } = this.state;
-		const { user } = this.props;
+		const { user, article_id } = this.props;
 
 		if (err) return <ErrorPage />;
 		return (
@@ -59,6 +60,7 @@ class Article extends Component {
 							Delete Article
 						</Button>
 					)}
+					<CommentListByArticleId article_id={article_id} />
 				</section>
 			)
 		);
