@@ -17,7 +17,6 @@ import UsersList from './components/UsersList/UsersList';
 class App extends Component {
 	state = {
 		topicsData: null,
-		route: 'articles',
 		//user needs to be passed for validation
 		user: 'grumpy19'
 	};
@@ -41,7 +40,7 @@ class App extends Component {
 	};
 
 	render() {
-		const { topicsData, user, route } = this.state;
+		const { topicsData, user } = this.state;
 		return !topicsData ? (
 			<p>loading...</p>
 		) : (
