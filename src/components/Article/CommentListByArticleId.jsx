@@ -44,13 +44,13 @@ class CommentListByArticleId extends Component {
 		) : (
 			<section>
 				<article id="commentListByArticleId">
+					<CommentForm updateCommentList={this.updateCommentList} user={user} article_id={article_id} />
 					{!commentListData.length ? (
 						<p>No comments available</p>
 					) : (
 						<ul>
-							<CommentForm updateCommentList={this.updateCommentList} user={user} article_id={article_id} />
 							{commentListData.map((comment) => {
-								return <CommentData {...comment} user={user} key={comment.comment_id} />;
+								return <CommentData {...comment} user={user} key={comment.comment_id} handleClick={this.handleClick} />;
 							})}
 						</ul>
 					)}
