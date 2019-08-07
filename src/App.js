@@ -5,7 +5,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Navbar from './components/Navbar/Navbar';
-import Header from './components/Header/Header';
 import { Router } from '@reach/router';
 import ArticleList from './components/ArticleList/ArticleList';
 import Article from './components/Article/Article';
@@ -18,6 +17,7 @@ import UsersList from './components/UsersList/UsersList';
 class App extends Component {
 	state = {
 		topicsData: null,
+		route: 'articles',
 		//user needs to be passed for validation
 		user: 'grumpy19'
 	};
@@ -36,8 +36,12 @@ class App extends Component {
 		this.setState({ topicsData: data });
 	};
 
+	updateRoute = (route) => {
+		this.setState({ route });
+	};
+
 	render() {
-		const { topicsData, user } = this.state;
+		const { topicsData, user, route } = this.state;
 		return !topicsData ? (
 			<p>loading...</p>
 		) : (
@@ -48,7 +52,6 @@ class App extends Component {
 							<Navbar topicsData={topicsData} user={user} />
 						</Col>
 						<Col xs={8}>
-							<Header />
 							<Router>
 								<TopicList
 									path="/explore"
