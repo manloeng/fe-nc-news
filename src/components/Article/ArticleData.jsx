@@ -4,7 +4,7 @@ import {Link} from '@reach/router'
 import * as api from '../api'
 import Voter from '../Voter/Voter';
 
-const ArticleData = ({title,topic,author,body,votes,created_at,comment_count}) => {
+const ArticleData = ({title,topic,author,body,votes,created_at,comment_count, article_id}) => {
 	return (
 		<>
       <Header route={'Article'}></Header>
@@ -17,7 +17,7 @@ const ArticleData = ({title,topic,author,body,votes,created_at,comment_count}) =
 					<article>
 						<p>{body}</p>
 					</article>
-					<Voter votes={votes}/>
+					<Voter votes={votes} article_id={article_id}/>
 					<p>Created at: {api.convertDateFormat(created_at)}</p>
 					<p>Comment Cout: {comment_count}</p>
 				</li>
