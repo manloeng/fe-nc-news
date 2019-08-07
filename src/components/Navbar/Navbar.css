@@ -1,6 +1,14 @@
-.col-4 {
-	background-color: azure;
+div {
+	justify-content: center;
 }
+
+.fa-user-circle-o {
+	justify-content: center;
+}
+
+/* .col-4 {
+	background-color: whitesmoke;
+} */
 
 ul {
 	list-style-type: none;
@@ -15,7 +23,7 @@ ul {
 }
 
 #profile {
-	height: 10vh;
+	height: 20vh;
 	margin: 1em;
 }
 
@@ -28,4 +36,12 @@ ul {
 .dropdown-menu {
 	height: 80vh;
 	overflow: auto;
+}
+
+.fa-plus-circle {
+	color: rgb(56, 119, 255);
+}
+
+div .addPost {
+	padding: 5em 1em;
 }
