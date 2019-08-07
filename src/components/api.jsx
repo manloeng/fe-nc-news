@@ -84,3 +84,7 @@ export const deleteCommentByCommentId = (comment_id, article_id) => {
 		return getCommentDataByArticleId(article_id);
 	});
 };
+
+export const convertDateFormat = (date) => {
+	return new Date(date).toLocaleString();
+};
