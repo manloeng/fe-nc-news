@@ -1,10 +1,15 @@
 import React from 'react';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ route }) => {
+	console.log(route);
+	const reg = /\w+/g;
+	if (route === '/') route = '/articles';
+	const matchedStr = route.match(reg)[0];
+	const formattedStr = matchedStr[0].toUpperCase() + matchedStr.slice(1);
 	return (
 		<header>
-			<h1>Header Here !</h1>
+			<h1>{formattedStr}</h1>
 		</header>
 	);
 };
