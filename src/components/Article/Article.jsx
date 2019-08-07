@@ -4,6 +4,7 @@ import * as api from '../api';
 import './Article.css';
 import ErrorPage from '../ErrorPage';
 import CommentListByArticleId from './CommentListByArticleId';
+import ArticleData from './ArticleData';
 
 class Article extends Component {
 	state = {
@@ -40,21 +41,7 @@ class Article extends Component {
 		return (
 			articleData && (
 				<section className="article">
-					<header>
-						<h3>{articleData.title}</h3>
-					</header>
-					<ul>
-						<li>
-							<p>Topic: {articleData.topic}</p>
-							<p>By: {articleData.author}</p>
-							<article>
-								<p>{articleData.body}</p>
-							</article>
-							<p>Votes: {articleData.votes}</p>
-							<p>Created at: {articleData.created_at}</p>
-							<p>Comment Cout: {articleData.comment_count}</p>
-						</li>
-					</ul>
+					<ArticleData {...articleData} />
 					{user === articleData.author && (
 						<Button variant="danger" onClick={this.handleClick}>
 							Delete Article
