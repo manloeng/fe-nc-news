@@ -25,6 +25,12 @@ export const getArticleDataByTopicSlug = (topic_slug) => {
 	});
 };
 
+export const getCommentDataByArticleId = (article_id) => {
+	return request.get(`/articles/${article_id}/comments`).then(({ data }) => {
+		return data.comments;
+	});
+};
+
 export const getTopicsData = () => {
 	return request.get('/topics').then(({ data }) => {
 		return data.topics;
