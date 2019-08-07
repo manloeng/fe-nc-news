@@ -37,9 +37,15 @@ export const getTopicsData = () => {
 	});
 };
 
-export const getUsersData = (username) => {
+export const getUserData = (username) => {
 	return request.get(`/users/${username}`).then(({ data }) => {
 		return data.user;
+	});
+};
+
+export const getUsersListData = () => {
+	return request.get(`/users`).then(({ data }) => {
+		return data.users;
 	});
 };
 
