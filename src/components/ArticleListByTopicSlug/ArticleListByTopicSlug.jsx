@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ArticleCard from '../ArticleList/ArticleCard';
 import * as api from '../api';
+import Header from '../Header/Header';
 
 class ArticleListByTopicSlug extends Component {
 	state = {
@@ -33,16 +34,18 @@ class ArticleListByTopicSlug extends Component {
 
 	render() {
 		const { articleDataByTopicSlug, err } = this.state;
-
-		if (err) return <p>No Articles Found</p>;
+		const { topic_slug } = this.props;
 
 		return !articleDataByTopicSlug ? (
 			<p>loading</p>
 		) : (
 			<section>
-				{articleDataByTopicSlug.map((article) => {
-					return <ArticleCard article={article} key={article.article_id} />;
-				})}
+				<Header route={topic_slug} />
+				{err && <p>No Articles Found</p>}
+				{!err &&
+					articleDataByTopicSlug.map((article) => {
+						return <ArticleCard article={article} key={article.article_id} />;
+					})}
 			</section>
 		);
 	}
