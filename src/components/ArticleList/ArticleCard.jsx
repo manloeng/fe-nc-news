@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ArticleCard.css';
 import { Link } from '@reach/router';
+import * as api from '../api';
 
 class ArticleCard extends Component {
 	render() {
@@ -10,10 +11,11 @@ class ArticleCard extends Component {
 				<li>
 					<Link to={`/articles/${article_id}`}>{title}</Link>
 					<p>Comment Count: {comment_count}</p>
-					<p>Topic: {topic}</p>
-					<p>By: {author}</p>
+					<Link to={`/explore/${topic}`}>Topic: {topic}</Link>
+					<br />
+					<Link to={`/users/${author}`}>By: {author}</Link>
 					<p>Votes: {votes}</p>
-					<p>Created at :{created_at}</p>
+					<p>Created at :{api.convertDateFormat(created_at)}</p>
 				</li>
 			</ul>
 		);
