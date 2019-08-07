@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ArticleCard from '../ArticleList/ArticleCard';
 import * as api from '../api';
-import ErrorPage from '../ErrorPage';
 
 class ArticleListByTopicSlug extends Component {
 	state = {
@@ -34,7 +33,9 @@ class ArticleListByTopicSlug extends Component {
 
 	render() {
 		const { articleDataByTopicSlug, err } = this.state;
-		if (err) return <ErrorPage {...err} />;
+
+		if (err) return <p>No Articles Found</p>;
+
 		return !articleDataByTopicSlug ? (
 			<p>loading</p>
 		) : (
