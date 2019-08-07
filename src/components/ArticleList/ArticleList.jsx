@@ -5,20 +5,23 @@ import * as api from '../api';
 import ArticleForm from '../ArticleForm/ArticleForm';
 import ErrorPage from '../ErrorPage';
 import Header from '../Header/Header';
+import ArticleSorter from '../ArticleSorter/ArticleSorter';
 
 class ArticleList extends Component {
 	state = {
 		articleListData: null,
-		err: null
+		err: null,
+		sort_by: 'Date',
+		order: 'Desc'
 	};
 
 	componentDidMount() {
 		this.fetchArticleData();
 	}
 
-	fetchArticleData = () => {
+	fetchArticleData = (query) => {
 		api
-			.getArticleData()
+			.getArticleData(query)
 			.then((data) => {
 				this.setState({ articleListData: data });
 			})
@@ -39,8 +42,24 @@ class ArticleList extends Component {
 		});
 	};
 
+	handleChange = (e) => {
+		const { id, value } = e.target;
+		this.setState({ [id]: value });
+	};
+
+	componentDidUpdate(prevProp, prevState) {
+		let { sort_by, order } = this.state;
+
+		if (prevState.sort_by !== sort_by || prevState.order !== order) {
+			if (sort_by === 'Date') {
+				sort_by = 'created_at';
+			}
+			this.fetchArticleData({ sort_by: sort_by.toLowerCase(), order: order.toLowerCase() });
+		}
+	}
+
 	render() {
-		const { articleListData, err } = this.state;
+		const { articleListData, err, sort_by, order } = this.state;
 		const { user, topicsData, path } = this.props;
 
 		if (err) return <ErrorPage {...err} />;
@@ -49,14 +68,11 @@ class ArticleList extends Component {
 		) : (
 			<section id="articleCardSection">
 				<Header route={path} />
-				<article>
-					{user ? (
-						<ArticleForm user={user} topicsData={topicsData} updateArticlesList={this.updateArticlesList} />
-					) : null}
-					{articleListData.articles.map((article) => {
-						return <ArticleCard article={article} key={article.article_id} />;
-					})}
-				</article>
+				<ArticleSorter handleChange={this.handleChange} sort_by={sort_by} order={order} />
+				{user ? <ArticleForm user={user} topicsData={topicsData} updateArticlesList={this.updateArticlesList} /> : null}
+				{articleListData.articles.map((article) => {
+					return <ArticleCard article={article} key={article.article_id} />;
+				})}
 			</section>
 		);
 	}
