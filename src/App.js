@@ -16,9 +16,9 @@ import UsersList from './components/UsersList/UsersList';
 
 class App extends Component {
 	state = {
-		topicsData: null,
+		topicsData: null
 		//user needs to be passed for validation
-		user: 'grumpy19'
+		// user: 'grumpy19'
 	};
 
 	componentDidMount() {
