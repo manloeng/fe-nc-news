@@ -26,7 +26,7 @@ class CommentForm extends Component {
 		const { commentDescription } = this.state;
 		return (
 			<Form id="commentInput" onSubmit={this.handleSubmit}>
-				<Form.Group controlId="exampleForm.ControlTextarea1">
+				<Form.Group controlId="textArea">
 					<Form.Label>Comment Description: </Form.Label>
 					<Form.Control
 						as="textarea"
