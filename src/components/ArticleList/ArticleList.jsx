@@ -4,6 +4,7 @@ import ArticleCard from './ArticleCard';
 import * as api from '../api';
 import ArticleForm from '../ArticleForm/ArticleForm';
 import ErrorPage from '../ErrorPage';
+import Header from '../Header/Header';
 
 class ArticleList extends Component {
 	state = {
@@ -40,12 +41,14 @@ class ArticleList extends Component {
 
 	render() {
 		const { articleListData, err } = this.state;
-		const { user, topicsData } = this.props;
+		const { user, topicsData, path } = this.props;
+
 		if (err) return <ErrorPage {...err} />;
 		return !articleListData ? (
 			<p>loading...</p>
 		) : (
 			<section id="articleCardSection">
+				<Header route={path} />
 				<article>
 					{user ? (
 						<ArticleForm user={user} topicsData={topicsData} updateArticlesList={this.updateArticlesList} />
