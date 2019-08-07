@@ -60,7 +60,7 @@ class Article extends Component {
 							Delete Article
 						</Button>
 					)}
-					<CommentListByArticleId article_id={article_id} />
+					<CommentListByArticleId article_id={article_id} user={user} />
 				</section>
 			)
 		);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './CommentListByArticleId.css';
+import Button from 'react-bootstrap/Button';
 import * as api from '../api';
 
 class CommentListByArticleId extends Component {
@@ -20,10 +21,15 @@ class CommentListByArticleId extends Component {
 
 	render() {
 		const { commentListData } = this.state;
-		return (
-			commentListData && (
-				<section>
-					<article id="commentListByArticleId">
+		const { user } = this.props;
+		return !commentListData ? (
+			<p>loading...</p>
+		) : (
+			<section>
+				<article id="commentListByArticleId">
+					{!commentListData.length ? (
+						<p>No comments available</p>
+					) : (
 						<ul>
 							{commentListData.map((comment) => {
 								return (
@@ -34,13 +40,18 @@ class CommentListByArticleId extends Component {
 										<br />
 										<p>Created at: {comment.created_at}</p>
 										<p>Votes: {comment.votes}</p>
+										{user === comment.author && (
+											<Button variant="danger" onClick={this.handleClick}>
+												Delete Comment
+											</Button>
+										)}
 									</li>
 								);
 							})}
 						</ul>
-					</article>
-				</section>
-			)
+					)}
+				</article>
+			</section>
 		);
 	}
 }
