@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Header/Header';
 import {Link} from '@reach/router'
 import * as api from '../api'
+import Voter from '../Voter/Voter';
 
 const ArticleData = ({title,topic,author,body,votes,created_at,comment_count}) => {
 	return (
@@ -16,7 +17,7 @@ const ArticleData = ({title,topic,author,body,votes,created_at,comment_count}) =
 					<article>
 						<p>{body}</p>
 					</article>
-					<p>Votes: {votes}</p>
+					<Voter votes={votes}/>
 					<p>Created at: {api.convertDateFormat(created_at)}</p>
 					<p>Comment Cout: {comment_count}</p>
 				</li>
