@@ -57,6 +57,16 @@ export const postArticleData = (inputBody, user) => {
 	});
 };
 
+export const postCommentData = (commentDescription, user, article_id) => {
+	const commentData = {
+		username: user,
+		body: commentDescription
+	};
+	return request.post(`/articles/${article_id}/comments`, commentData).then(({ data }) => {
+		return data.comment;
+	});
+};
+
 export const deleteArticleByArticleId = (article_id) => {
 	return request.delete(`/articles/${article_id}`).then(() => {
 		navigate('/');
