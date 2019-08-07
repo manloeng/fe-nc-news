@@ -1,7 +1,9 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import './Navbar.css';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
+import SplitButton from 'react-bootstrap/SplitButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 const Navbar = ({ topicsData, user }) => {
 	return (
@@ -15,21 +17,37 @@ const Navbar = ({ topicsData, user }) => {
 			<Row>
 				<Link to="/users">Users</Link>
 			</Row>
-			<Row>
-				<Link to="/explore">Explore</Link>
+			<Row id="splitBtnRow">
+				<SplitButton
+					id={`dropdown-split-variants-primary`}
+					title="Explore"
+					key="primary"
+					onClick={() => {
+						navigate(`/explore`);
+					}}
+				>
+					<Dropdown.Item>
+						<b>Select Topic...</b>
+					</Dropdown.Item>
+					<Dropdown.Divider />
+					{topicsData.map((topic) => {
+						const formattedSlug = topic.slug[0].toUpperCase() + topic.slug.slice(1);
+						return (
+							<Row key={topic.slug}>
+								<Dropdown.Item
+									eventKey={`${topic.slug}`}
+									onClick={() => {
+										navigate(`/explore/${topic.slug}`);
+									}}
+								>
+									<p>{formattedSlug}</p>
+									<Dropdown.Divider />
+								</Dropdown.Item>
+							</Row>
+						);
+					})}
+				</SplitButton>
 			</Row>
-			<ul>
-				{topicsData.map((topic) => {
-					const formattedSlug = topic.slug[0].toUpperCase() + topic.slug.slice(1);
-					return (
-						<Row key={topic.slug}>
-							<li>
-								<Link to={`/explore/${topic.slug}`}>{formattedSlug}</Link>
-							</li>
-						</Row>
-					);
-				})}
-			</ul>
 		</nav>
 	);
 };
