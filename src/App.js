@@ -10,7 +10,7 @@ import { Router } from '@reach/router';
 import ArticleList from './components/ArticleList/ArticleList';
 import Article from './components/Article/Article';
 import TopicList from './components/TopicList/TopicList';
-import User from './components/Users/User';
+import User from './components/User/User';
 import ArticleListByTopicSlug from './components/ArticleListByTopicSlug/ArticleListByTopicSlug';
 import ErrorPage from './components/ErrorPage';
 
@@ -59,6 +59,7 @@ class App extends Component {
 								<ArticleList path="/" user={user} topicsData={topicsData} />
 								<ArticleList path="/articles" user={user} topicsData={topicsData} />
 								<Article path="/articles/:article_id" user={user} />
+
 								<User path="/users/:username" />
 								<ErrorPage default />
 							</Router>
