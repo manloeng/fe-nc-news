@@ -19,6 +19,13 @@ class CommentListByArticleId extends Component {
 		});
 	};
 
+	handleClick = (e) => {
+		const { article_id } = this.props;
+		api.deleteCommentByCommentId(e.target.name, article_id).then((comments) => {
+			this.setState({ commentListData: comments });
+		});
+	};
+
 	render() {
 		const { commentListData } = this.state;
 		const { user } = this.props;
@@ -41,7 +48,7 @@ class CommentListByArticleId extends Component {
 										<p>Created at: {comment.created_at}</p>
 										<p>Votes: {comment.votes}</p>
 										{user === comment.author && (
-											<Button variant="danger" onClick={this.handleClick}>
+											<Button variant="danger" onClick={this.handleClick} name={comment.comment_id}>
 												Delete Comment
 											</Button>
 										)}
