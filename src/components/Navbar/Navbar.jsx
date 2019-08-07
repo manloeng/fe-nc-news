@@ -13,6 +13,9 @@ const Navbar = ({ topicsData, user }) => {
 				<Link to="/">Home</Link>
 			</Row>
 			<Row>
+				<Link to="/users">Users</Link>
+			</Row>
+			<Row>
 				<Link to="/explore">Explore</Link>
 			</Row>
 			<ul>
