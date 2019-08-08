@@ -10,23 +10,6 @@ div {
 	background-color: whitesmoke;
 } */
 
-ul {
-	list-style-type: none;
-}
-
-#navbar div a {
-	margin: 1em auto 1em auto;
-}
-
-#navbar ul div {
-	margin: auto 30%;
-}
-
-#profile {
-	height: 20vh;
-	margin: 1em;
-}
-
 #splitBtnRow {
 	display: flex;
 	justify-content: center;
@@ -43,9 +26,21 @@ ul {
 }
 
 div .addPost {
-	padding: 5em 1em;
+	padding: 5rem 1rem;
 }
 
 .addPost {
 	display: none;
+}
+
+#userLink {
+	margin-bottom: 1rem;
+}
+
+#homeLink {
+	margin-bottom: 1rem;
+}
+
+#usersLink {
+	margin-bottom: 1rem;
 }
