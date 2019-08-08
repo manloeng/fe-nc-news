@@ -74,11 +74,7 @@ export const postCommentData = (commentDescription, user, article_id) => {
 };
 
 export const patchArticleVoteByArticleId = (inc_votes, article_id) => {
-	console.log(inc_votes);
-	return request.patch(`/articles/${article_id}`, { inc_votes }).then((data) => {
-		console.log(data, '<---');
-		return data;
-	});
+	return request.patch(`/articles/${article_id}`, { inc_votes });
 };
 
 export const deleteArticleByArticleId = (article_id) => {
