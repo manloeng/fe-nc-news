@@ -11,7 +11,12 @@ const CommentData = ({ comment_id, author, body, created_at, votes, user, handle
 				<Link to={`/users/${author}`}>By: {author}</Link>
 				<p>{body}</p>
 				<Voter votes={votes} comment_id={comment_id} />
-				<p>Created at: {api.convertDateFormat(created_at)}</p>
+				<p>
+					<span role="img" aria-label="created_at">
+						🗓
+					</span>
+					{api.convertDateFormat(created_at)}
+				</p>
 				{user === author && (
 					<Button variant="danger" onClick={handleClick} name={comment_id}>
 						Delete Comment
