@@ -1,10 +1,3 @@
-.topicsSection {
-	height: 90vh;
-	overflow: auto;
-	border: 1px solid greenyellow;
-	margin-bottom: 1rem;
-}
-
 .topicsSection figure li {
 	border: 1px solid goldenrod;
 	margin: 1em;
