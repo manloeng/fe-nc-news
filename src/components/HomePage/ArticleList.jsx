@@ -59,7 +59,7 @@ class ArticleList extends Component {
 	}
 
 	render() {
-		const { articleListData, err, sort_by, order } = this.state;
+		const { articleListData, err } = this.state;
 		const { user, topicsData, path } = this.props;
 
 		if (err) return <ErrorPage {...err} />;
@@ -68,7 +68,7 @@ class ArticleList extends Component {
 		) : (
 			<section id="articleCardSection">
 				<Header route={path} />
-				<ArticleSorter handleChange={this.handleChange} sort_by={sort_by} order={order} />
+				<ArticleSorter handleChange={this.handleChange} />
 				{user ? <ArticleForm user={user} topicsData={topicsData} updateArticlesList={this.updateArticlesList} /> : null}
 				{articleListData.articles.map((article) => {
 					return <ArticleCard article={article} key={article.article_id} />;
