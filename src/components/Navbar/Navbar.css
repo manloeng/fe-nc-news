@@ -19,6 +19,7 @@ div {
 .dropdown-menu {
 	height: 80vh;
 	overflow: auto;
+	text-align: center;
 }
 
 .fa-plus-circle {
@@ -47,9 +48,23 @@ div .addPost {
 
 #profile {
 	padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+	max-width: 250px;
+	margin: auto;
 }
 
 #user {
 	max-width: 100px;
 	margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+	.col-4 {
+		min-width: 90px;
+	}
+}
+
+@media (min-width: 600px) {
+	.container {
+		max-width: none;
+	}
 }
