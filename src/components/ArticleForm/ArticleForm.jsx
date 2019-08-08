@@ -46,7 +46,7 @@ class ArticleForm extends Component {
 
 		return (
 			<>
-			{err && <p>Please Select Topic!</p>}
+			{err && <p className="selectTopic">Please Select Topic!</p>}
 			<Form id="articleInput" onSubmit={this.handleSubmit}>
 				<Form.Group controlId="exampleForm.ControlInput1">
 					<Form.Label>Article Title: </Form.Label>

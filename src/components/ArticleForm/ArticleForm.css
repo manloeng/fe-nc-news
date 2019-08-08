@@ -1,3 +1,7 @@
 #articleInput {
-	margin: 1em;
+	margin: 1rem;
+}
+
+.selectTopic {
+	color: red;
 }
