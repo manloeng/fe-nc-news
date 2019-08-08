@@ -4,26 +4,42 @@ import './Navbar.css';
 import { Link, navigate } from '@reach/router';
 import SplitButton from 'react-bootstrap/SplitButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Image from 'react-bootstrap/Image';
+import Img from '../images/logo-small.png';
 
-const Navbar = ({ topicsData, user }) => {
+const Navbar = ({ topicsData, user, avatar_url }) => {
 	return (
 		<nav id="navbar">
-			{user ? (
-				<Row id="profile">
-					<Link to={`/users/${user}`}>{user}</Link>
-				</Row>
-			) : (
-				<Row id="profile">
-					<i className="fa fa-user-circle-o fa-4x" aria-hidden="true" />
-					<p>Sign In!</p>
-				</Row>
-			)}
-			<Row>
-				<i className="fa fa-home fa-4x" aria-hidden="true" />
-				<Link to="/">Home</Link>
+			<Row id="profile" xs={12}>
+				<Image src={Img} thumbnail />
 			</Row>
 			<Row>
-				<Link to="/users">Users</Link>
+				<Link to={`/users/${user}`}>
+					<Image src={`${avatar_url}`} fluid />
+				</Link>
+			</Row>
+			<Row id="userLink">
+				<Link to={`/users/${user}`}>{user}</Link>
+			</Row>
+			{/* //  : (
+			// 	//work in progress
+			// 	<Row id="profile">
+			// 		<i className="fa fa-user-circle-o fa-4x" aria-hidden="true" />
+			// 		<p>Sign In!</p>
+			// 	</Row>
+			// )} */}
+			<Row>
+				<Link to="/">
+					<i className="fa fa-home fa-4x" aria-hidden="true" />
+				</Link>
+			</Row>
+			<Row id="homeLink">
+				<Link to="/">Home</Link>
+			</Row>
+			<Row id="usersLink">
+				<Link to="/users">
+					<i className="fa fa-user fa-3x" aria-hidden="true" /> Users
+				</Link>
 			</Row>
 			<Row id="splitBtnRow">
 				<SplitButton
