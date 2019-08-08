@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import './ArticleSorter.css';
 
-const ArticleSorter = ({ handleChange, sort_by, order }) => {
+const ArticleSorter = ({ handleChange }) => {
 	return (
 		<Form id="sorterForm">
 			<Form.Row>
