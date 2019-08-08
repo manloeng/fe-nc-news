@@ -7,7 +7,7 @@ const Header = ({ route }) => {
 	const matchedStr = route.match(reg)[0];
 	const formattedStr = matchedStr[0].toUpperCase() + matchedStr.slice(1);
 	return (
-		<header>
+		<header id="mainHeader">
 			<h1>{formattedStr}</h1>
 		</header>
 	);
