@@ -6,15 +6,12 @@ class Voter extends Component {
 		inc_votes: 0
 	};
 
-	voteChange = (vote) => {
-		const { inc_votes } = this.state;
+	updateVote = (voteChange) => {
 		const { article_id } = this.props;
 		this.setState(({ inc_votes }) => {
-			return { inc_votes: inc_votes + vote };
+			return { inc_votes: inc_votes + voteChange };
 		});
-		api.patchArticleVoteByArticleId(inc_votes, article_id).then((data) => {
-			console.log(data);
-		});
+		api.patchArticleVoteByArticleId(voteChange, article_id);
 	};
 
 	render() {
@@ -25,7 +22,7 @@ class Voter extends Component {
 			<div>
 				<button
 					onClick={(e) => {
-						this.voteChange(1);
+						this.updateVote(1);
 					}}
 					disabled={inc_votes >= 1}
 				>
@@ -34,7 +31,7 @@ class Voter extends Component {
 				<p>Votes: {inc_votes + votes}</p>
 				<button
 					onClick={(e) => {
-						this.voteChange(-1);
+						this.updateVote(-1);
 					}}
 					disabled={inc_votes <= -1}
 				>
