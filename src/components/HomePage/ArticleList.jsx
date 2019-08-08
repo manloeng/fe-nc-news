@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './ArticleList.css';
-import ArticleCard from './ArticleCard';
+import ArticleCard from './ArticleList/ArticleCard';
 import * as api from '../api';
 import ArticleForm from '../ArticleForm/ArticleForm';
 import ErrorPage from '../ErrorPage';

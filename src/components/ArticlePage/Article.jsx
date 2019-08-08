@@ -3,8 +3,8 @@ import Button from 'react-bootstrap/Button';
 import * as api from '../api';
 import './Article.css';
 import ErrorPage from '../ErrorPage';
-import CommentListByArticleId from './CommentListByArticleId';
-import ArticleData from './ArticleData';
+import CommentListByArticleId from './Article/CommentListByArticleId';
+import ArticleData from './Article/ArticleData';
 
 class Article extends Component {
 	state = {
