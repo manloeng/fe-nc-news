@@ -6,13 +6,13 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Navbar from './components/Navbar/Navbar';
 import { Router } from '@reach/router';
-import ArticleList from './components/ArticleList/ArticleList';
-import Article from './components/Article/Article';
-import TopicList from './components/TopicList/TopicList';
-import User from './components/User/User';
-import ArticleListByTopicSlug from './components/ArticleListByTopicSlug/ArticleListByTopicSlug';
+import ArticleList from './components/HomePage/ArticleList';
+import Article from './components/ArticlePage/Article.jsx';
+import TopicList from './components/TopicsPage/TopicList';
+import User from './components/UserPage/User';
+import ArticleListByTopicSlug from './components/TopicPage/ArticleListByTopicSlug';
 import ErrorPage from './components/ErrorPage';
-import UsersList from './components/UsersList/UsersList';
+import UsersList from './components/UsersPage/UsersList';
 
 class App extends Component {
 	state = {
