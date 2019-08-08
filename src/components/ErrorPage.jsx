@@ -7,27 +7,31 @@ const ErrorPage = ({ msg, status }) => {
 	const errRef = {
 		400: 'https://previews.123rf.com/images/mariusz_prusaczyk/mariusz_prusaczyk1205/mariusz_prusaczyk120500298/13700783-3d-error-400-crossword-on-white-background.jpg',
 		404: 'https://image.freepik.com/free-vector/funny-error-404-background-design_1167-219.jpg',
-		500: 'https://img.freepik.com/free-vector/500-error-cute-penguin-vector-illustration_81257-36.jpg?size=338&ext=jpg'
+		500: 'https://img.freepik.com/free-vector/500-error-cute-penguin-vector-illustration_81257-36.jpg?size=338&ext=jpg',
+		undefined:
+			'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJthz4SmVOHGIi0YCVFz5p1cujZxye3VTGrBJverK3UArt9nGW'
 	};
 
 	return (
-		<div>
+		<section>
 			<Header route={'Error'} />
-			{status && <Image src={errRef[status]} fluid id="errImg" />}
-			<p>
-				<em>Oops! You landed on an Error!</em>
-			</p>
-			{msg && (
+			<Image src={errRef[status]} fluid id="errImg" />
+			<div id="errorSection">
 				<p>
-					<em>Status: {status}</em>
+					<em>Oops! You landed on an Error!</em>
 				</p>
-			)}
-			{status && (
-				<p>
-					<em>{msg}...</em>
-				</p>
-			)}
-		</div>
+				{msg && (
+					<p>
+						<em>Status: {status}</em>
+					</p>
+				)}
+				{status && (
+					<p>
+						<em>{msg}...</em>
+					</p>
+				)}
+			</div>
+		</section>
 	);
 };
 

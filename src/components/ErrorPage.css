@@ -1,3 +1,12 @@
 #errImg {
 	padding: 1rem;
 }
+
+#errorSection {
+	margin: 0.5rem;
+	padding: 0.5rem;
+	background-color: whitesmoke;
+	border-radius: 1rem;
+	border: 1px solid black;
+	box-shadow: 5px 10px #888888;
+}
