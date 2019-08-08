@@ -5,7 +5,7 @@ import { Link, navigate } from '@reach/router';
 import SplitButton from 'react-bootstrap/SplitButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Image from 'react-bootstrap/Image';
-import Img from '../images/logo-lg.png';
+import Img from '../images/logo-lg.jpg';
 
 const Navbar = ({ topicsData, user, avatar_url }) => {
 	return (
@@ -15,14 +15,7 @@ const Navbar = ({ topicsData, user, avatar_url }) => {
 					<Image srcset={Img} fluid />
 				</Link>
 			</Row>
-			<Row>
-				<Link to={`/users/${user}`}>
-					<Image src={`${avatar_url}`} fluid />
-				</Link>
-			</Row>
-			<Row id="userLink">
-				<Link to={`/users/${user}`}>{user}</Link>
-			</Row>
+
 			{/* //  : (
 			// 	//work in progress
 			// 	<Row id="profile">
@@ -37,6 +30,14 @@ const Navbar = ({ topicsData, user, avatar_url }) => {
 			</Row>
 			<Row id="homeLink">
 				<Link to="/">Home</Link>
+			</Row>
+			<Row id="user">
+				<Link to={`/users/${user}`}>
+					<Image src={`${avatar_url}`} fluid />
+				</Link>
+			</Row>
+			<Row id="userLink">
+				<Link to={`/users/${user}`}>{user}</Link>
 			</Row>
 			<Row id="usersLink">
 				<Link to="/users">

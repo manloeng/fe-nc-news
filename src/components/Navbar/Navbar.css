@@ -24,27 +24,32 @@ div {
 .fa-plus-circle {
 	color: rgb(56, 119, 255);
 }
-
+/* 
 div .addPost {
 	padding: 5rem 1rem;
-}
+} */
 
 .addPost {
 	display: none;
 }
 
 #userLink {
-	margin-bottom: 1rem;
+	margin-bottom: 0.5rem;
 }
 
 #homeLink {
-	margin-bottom: 1rem;
+	margin-bottom: 0.5rem;
 }
 
 #usersLink {
-	margin-bottom: 1rem;
+	margin-bottom: 0.5rem;
 }
 
 #profile {
-	padding: 2rem 1rem 1rem 1rem;
+	padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+#user {
+	max-width: 100px;
+	margin: auto;
 }
