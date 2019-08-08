@@ -1,7 +1,6 @@
 #articleCardSection {
-	height: 90vh;
+	height: 85vh;
 	overflow: auto;
-	border: 1px solid greenyellow;
 	margin-bottom: 1rem;
 }
 
