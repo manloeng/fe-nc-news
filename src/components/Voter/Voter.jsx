@@ -31,9 +31,7 @@ class Voter extends Component {
 					}}
 					disabled={inc_votes >= 1}
 				>
-					<span role="img" aria-label="upVote">
-						❤
-					</span>
+					<i class="fa fa-arrow-up" aria-hidden="true" />
 				</button>
 				<p>Votes: {inc_votes + votes}</p>
 				<button
@@ -42,9 +40,7 @@ class Voter extends Component {
 					}}
 					disabled={inc_votes <= -1}
 				>
-					<span role="img" aria-label="downVote">
-						💔
-					</span>
+					<i class="fa fa-arrow-down" aria-hidden="true" />
 				</button>
 			</div>
 		);
