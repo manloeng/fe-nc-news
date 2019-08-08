@@ -5,11 +5,6 @@
 	margin-bottom: 1rem;
 }
 
-#pagination {
-	margin-left: 1rem;
-	margin-right: 1rem;
-}
-
 ::-webkit-scrollbar {
 	width: 10px;
 }

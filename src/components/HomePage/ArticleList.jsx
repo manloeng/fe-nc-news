@@ -48,6 +48,10 @@ class ArticleList extends Component {
 		this.setState({ [id]: value });
 	};
 
+	updateViaPagination = (articleListData) => {
+		this.setState({ articleListData });
+	};
+
 	componentDidUpdate(prevProp, prevState) {
 		let { sort_by, order } = this.state;
 
@@ -81,7 +85,7 @@ class ArticleList extends Component {
 						return <ArticleCard article={article} key={article.article_id} />;
 					})}
 				</section>
-				<Pagination />
+				<Pagination articleListData={articleListData} updateViaPagination={this.updateViaPagination} />
 			</section>
 		);
 	}
