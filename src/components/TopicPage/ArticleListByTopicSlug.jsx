@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ArticleCard from '../HomePage/ArticleList/ArticleCard';
 import * as api from '../api';
 import Header from '../Header/Header';
+import './ArticleListByTopicSlug.css';
 
 class ArticleListByTopicSlug extends Component {
 	state = {
@@ -37,7 +38,7 @@ class ArticleListByTopicSlug extends Component {
 		const { topic_slug } = this.props;
 
 		return (
-			<section>
+			<section className="topicSection">
 				<Header route={topic_slug} />
 				{err && <p>No Articles Found</p>}
 

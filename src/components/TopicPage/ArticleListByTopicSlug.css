@@ -1,0 +1,6 @@
+.topicSection {
+	height: 90vh;
+	overflow: auto;
+	border: 1px solid greenyellow;
+	margin-bottom: 1rem;
+}
