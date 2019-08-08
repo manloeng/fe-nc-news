@@ -1,15 +1,11 @@
 #articleCard {
-	padding: 0;
-	margin: 2em;
-	font-size: 0.75em;
-	border: 1px solid blue;
-	border-radius: 1em;
+	padding: 1rem;
+	margin: 1rem 0.5rem;
+	font-size: 0.75rem;
+	border: 0.1rem solid goldenrod;
+	border-radius: 1rem;
 }
 
-/* #titleButton {
-	font-size: 1.1em;
-	padding: 0.2em;
-	border: 1px solid gray;
-	border-radius: 1em;
-	background-color: antiquewhite;
-} */
+#articleCard h3 {
+	font-size: 1.2rem;
+}
