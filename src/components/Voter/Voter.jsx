@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../api';
+import './Voter.css';
 
 class Voter extends Component {
 	state = {
@@ -23,14 +24,16 @@ class Voter extends Component {
 		const { inc_votes } = this.state;
 
 		return (
-			<div>
+			<div className="voteIcon">
 				<button
 					onClick={(e) => {
 						this.updateVote(1);
 					}}
 					disabled={inc_votes >= 1}
 				>
-					<i className="fa fa-arrow-up" aria-hidden="true" />
+					<span role="img" aria-label="upVote">
+						❤
+					</span>
 				</button>
 				<p>Votes: {inc_votes + votes}</p>
 				<button
@@ -39,7 +42,9 @@ class Voter extends Component {
 					}}
 					disabled={inc_votes <= -1}
 				>
-					<i className="fa fa-arrow-down" aria-hidden="true" />
+					<span role="img" aria-label="downVote">
+						💔
+					</span>
 				</button>
 			</div>
 		);
