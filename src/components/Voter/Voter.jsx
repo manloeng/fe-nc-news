@@ -7,11 +7,15 @@ class Voter extends Component {
 	};
 
 	updateVote = (voteChange) => {
-		const { article_id } = this.props;
+		const { article_id, comment_id } = this.props;
 		this.setState(({ inc_votes }) => {
 			return { inc_votes: inc_votes + voteChange };
 		});
-		api.patchArticleVoteByArticleId(voteChange, article_id);
+		if (comment_id) {
+			api.patchCommentVoteByCommentId(voteChange, comment_id);
+		} else {
+			api.patchArticleVoteByArticleId(voteChange, article_id);
+		}
 	};
 
 	render() {
