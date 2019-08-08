@@ -12,7 +12,7 @@ const Navbar = ({ topicsData, user, avatar_url }) => {
 		<nav id="navbar">
 			<Row id="profile">
 				<Link to="/">
-					<Image srcset={Img} fluid />
+					<Image src={Img} fluid />
 				</Link>
 			</Row>
 			<Row>
