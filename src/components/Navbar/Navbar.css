@@ -44,3 +44,8 @@ div .addPost {
 #usersLink {
 	margin-bottom: 1rem;
 }
+
+#profile {
+	padding: 1rem;
+	margin-top: 0.5rem;
+}

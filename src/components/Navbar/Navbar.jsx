@@ -11,7 +11,7 @@ const Navbar = ({ topicsData, user, avatar_url }) => {
 	return (
 		<nav id="navbar">
 			<Row id="profile" xs={12}>
-				<Image src={Img} thumbnail />
+				<Image src={Img} fluid />
 			</Row>
 			<Row>
 				<Link to={`/users/${user}`}>
