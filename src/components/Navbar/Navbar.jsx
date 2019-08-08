@@ -14,12 +14,12 @@ const Navbar = ({ topicsData, user }) => {
 				</Row>
 			) : (
 				<Row id="profile">
-					<i class="fa fa-user-circle-o fa-4x" aria-hidden="true" />
+					<i className="fa fa-user-circle-o fa-4x" aria-hidden="true" />
 					<p>Sign In!</p>
 				</Row>
 			)}
 			<Row>
-				<i class="fa fa-home fa-4x" aria-hidden="true" />
+				<i className="fa fa-home fa-4x" aria-hidden="true" />
 				<Link to="/">Home</Link>
 			</Row>
 			<Row>
