@@ -77,6 +77,10 @@ export const patchArticleVoteByArticleId = (inc_votes, article_id) => {
 	return request.patch(`/articles/${article_id}`, { inc_votes });
 };
 
+export const patchCommentVoteByCommentId = (inc_votes, comment_id) => {
+	return request.patch(`/comments/${comment_id}/`, { inc_votes });
+};
+
 export const deleteArticleByArticleId = (article_id) => {
 	return request.delete(`/articles/${article_id}`).then(() => {
 		navigate('/');
