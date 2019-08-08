@@ -16,9 +16,10 @@ import UsersList from './components/UsersPage/UsersList';
 
 class App extends Component {
 	state = {
-		topicsData: null
+		topicsData: null,
 		//user needs to be passed for validation
-		// user: 'grumpy19'
+		user: 'grumpy19',
+		avatar_url: 'https://www.tumbit.com/profile-image/4/original/mr-grumpy.jpg'
 	};
 
 	componentDidMount() {
@@ -40,7 +41,7 @@ class App extends Component {
 	};
 
 	render() {
-		const { topicsData, user } = this.state;
+		const { topicsData, user, avatar_url } = this.state;
 		return !topicsData ? (
 			<p>loading...</p>
 		) : (
@@ -48,7 +49,7 @@ class App extends Component {
 				<Container>
 					<Row>
 						<Col xs={4}>
-							<Navbar topicsData={topicsData} user={user} />
+							<Navbar topicsData={topicsData} user={user} avatar_url={avatar_url} />
 						</Col>
 						<Col xs={8}>
 							<Router>
