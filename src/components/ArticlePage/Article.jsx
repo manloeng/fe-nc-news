@@ -5,6 +5,7 @@ import './Article.css';
 import ErrorPage from '../ErrorPage';
 import CommentListByArticleId from './Article/CommentListByArticleId';
 import ArticleData from './Article/ArticleData';
+import Spinner from 'react-bootstrap/Spinner';
 
 class Article extends Component {
 	state = {
@@ -38,18 +39,20 @@ class Article extends Component {
 		const { user, article_id } = this.props;
 
 		if (err) return <ErrorPage />;
-		return (
-			articleData && (
-				<section className="article">
-					<ArticleData {...articleData} />
-					{user === articleData.author && (
-						<Button variant="danger" onClick={this.handleClick}>
-							Delete Article
-						</Button>
-					)}
-					<CommentListByArticleId article_id={article_id} user={user} />
-				</section>
-			)
+		return !articleData ? (
+			<Spinner animation="border" role="status">
+				<span className="sr-only">Loading...</span>
+			</Spinner>
+		) : (
+			<section className="article">
+				<ArticleData {...articleData} />
+				{user === articleData.author && (
+					<Button variant="danger" onClick={this.handleClick}>
+						Delete Article
+					</Button>
+				)}
+				<CommentListByArticleId article_id={article_id} user={user} />
+			</section>
 		);
 	}
 }

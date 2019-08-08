@@ -7,6 +7,7 @@ import ErrorPage from '../ErrorPage';
 import Header from '../Header/Header';
 import ArticleSorter from '../ArticleSorter/ArticleSorter';
 import Pagination from '../Pagination/Pagination';
+import Spinner from 'react-bootstrap/Spinner';
 
 class ArticleList extends Component {
 	state = {
@@ -72,7 +73,9 @@ class ArticleList extends Component {
 
 		if (err) return <ErrorPage {...err} />;
 		return !articleListData ? (
-			<p>loading...</p>
+			<Spinner animation="border" role="status">
+			<span className="sr-only">Loading...</span>
+		</Spinner>
 		) : (
 			<>
 				<section id="articleCardSection">

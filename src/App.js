@@ -13,6 +13,7 @@ import User from './components/UserPage/User';
 import ArticleListByTopicSlug from './components/TopicPage/ArticleListByTopicSlug';
 import ErrorPage from './components/ErrorPage';
 import UsersList from './components/UsersPage/UsersList';
+import Spinner from 'react-bootstrap/Spinner';
 
 class App extends Component {
 	state = {
@@ -43,7 +44,9 @@ class App extends Component {
 	render() {
 		const { topicsData, user, avatar_url } = this.state;
 		return !topicsData ? (
-			<p>loading...</p>
+			<Spinner animation="border" role="status">
+				<span className="sr-only">Loading...</span>
+			</Spinner>
 		) : (
 			<div className="App">
 				<Container>
