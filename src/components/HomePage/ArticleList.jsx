@@ -74,7 +74,7 @@ class ArticleList extends Component {
 		return !articleListData ? (
 			<p>loading...</p>
 		) : (
-			<section>
+			<>
 				<section id="articleCardSection">
 					<Header route={path} />
 					<ArticleSorter handleChange={this.handleChange} />
@@ -86,7 +86,7 @@ class ArticleList extends Component {
 					})}
 				</section>
 				<Pagination articleListData={articleListData} updateViaPagination={this.updateViaPagination} />
-			</section>
+			</>
 		);
 	}
 }

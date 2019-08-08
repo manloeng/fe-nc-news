@@ -3,6 +3,7 @@ import ArticleCard from '../HomePage/ArticleList/ArticleCard';
 import * as api from '../api';
 import Header from '../Header/Header';
 import './ArticleListByTopicSlug.css';
+import Pagination from '../Pagination/Pagination';
 
 class ArticleListByTopicSlug extends Component {
 	state = {
@@ -24,8 +25,8 @@ class ArticleListByTopicSlug extends Component {
 		const { topic_slug } = this.props;
 		api
 			.getArticleDataByTopicSlug(topic_slug)
-			.then((articles) => {
-				this.setState({ articleDataByTopicSlug: articles, err: null });
+			.then((data) => {
+				this.setState({ articleDataByTopicSlug: data, err: null });
 			})
 			.catch((err) => {
 				const { status, data } = err.response;
@@ -33,24 +34,39 @@ class ArticleListByTopicSlug extends Component {
 			});
 	};
 
+	updateViaPagination = (articleDataByTopicSlug) => {
+		this.setState({ articleDataByTopicSlug });
+	};
+
 	render() {
 		const { articleDataByTopicSlug, err } = this.state;
 		const { topic_slug } = this.props;
 
 		return (
-			<section className="topicSection">
-				<Header route={topic_slug} />
-				{err && <p>No Articles Found</p>}
+			<div>
+				<section className="topicSection">
+					<Header route={topic_slug} />
+					{err && <p>No Articles Found</p>}
 
-				{!articleDataByTopicSlug && !err ? (
-					<p>loading</p>
-				) : (
-					!err &&
-					articleDataByTopicSlug.map((article) => {
-						return <ArticleCard article={article} key={article.article_id} />;
-					})
+					{!articleDataByTopicSlug && !err ? (
+						<p>loading</p>
+					) : (
+						!err &&
+						articleDataByTopicSlug.articles.map((article) => {
+							return <ArticleCard article={article} key={article.article_id} />;
+						})
+					)}
+				</section>
+				{articleDataByTopicSlug &&
+				!err && (
+					<Pagination
+						articleListData={articleDataByTopicSlug}
+						articleDataByTopicSlug={articleDataByTopicSlug}
+						updateViaPagination={this.updateViaPagination}
+						topic_slug={topic_slug}
+					/>
 				)}
-			</section>
+			</div>
 		);
 	}
 }
