@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ArticleCard from '../ArticleList/ArticleCard';
-import * as api from '../api';
-import Header from '../Header/Header';
+import * as api from '../../api';
+import Header from '../../Header/Header';
 
 class ArticleListByTopicSlug extends Component {
 	state = {
