@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import './ArticleListByTopicSlug.css';
 import Pagination from '../Pagination/Pagination';
 import Loader from '../Loader/Loader';
+import ArticleSorter from '../ArticleSorter/ArticleSorter';
 
 class ArticleListByTopicSlug extends Component {
 	state = {
@@ -47,17 +48,25 @@ class ArticleListByTopicSlug extends Component {
 			<div>
 				<section className="topicSection">
 					<Header route={topic_slug} />
+					{/*  if err show no articles found */}
 					{err && <p>No Articles Found</p>}
 
+					{/*  if !err and articles are found show sorter*/}
+					{articleDataByTopicSlug && !err && <ArticleSorter />}
+
+					{/*  if !err and !articles found show loader*/}
 					{!articleDataByTopicSlug && !err ? (
 						<Loader />
 					) : (
+						/*  prevent null error when refreshing on the topic page*/
 						!err &&
 						articleDataByTopicSlug.articles.map((article) => {
 							return <ArticleCard article={article} key={article.article_id} />;
 						})
 					)}
 				</section>
+
+				{/*  if !err and articles are found show pagination*/}
 				{articleDataByTopicSlug &&
 				!err && (
 					<Pagination
