@@ -15,14 +15,6 @@ const Navbar = ({ topicsData, user, avatar_url }) => {
 					<Image srcset={Img} fluid />
 				</Link>
 			</Row>
-
-			{/* //  : (
-			// 	//work in progress
-			// 	<Row id="profile">
-			// 		<i className="fa fa-user-circle-o fa-4x" aria-hidden="true" />
-			// 		<p>Sign In!</p>
-			// 	</Row>
-			// )} */}
 			<Row>
 				<Link to="/">
 					<i className="fa fa-home fa-4x" aria-hidden="true" />
@@ -74,11 +66,6 @@ const Navbar = ({ topicsData, user, avatar_url }) => {
 						);
 					})}
 				</SplitButton>
-			</Row>
-			<Row className="addPost">
-				<button>
-					<i className="fa fa-plus-circle fa-3x" aria-hidden="true" />
-				</button>
 			</Row>
 		</nav>
 	);
