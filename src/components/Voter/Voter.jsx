@@ -9,9 +9,11 @@ class Voter extends Component {
 	voteChange = (vote) => {
 		const { inc_votes } = this.state;
 		const { article_id } = this.props;
-		api.patchArticleVoteByArticleId(inc_votes, article_id);
 		this.setState(({ inc_votes }) => {
 			return { inc_votes: inc_votes + vote };
+		});
+		api.patchArticleVoteByArticleId(inc_votes, article_id).then((data) => {
+			console.log(data);
 		});
 	};
 

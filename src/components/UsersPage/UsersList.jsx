@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as api from '../api';
 import ErrorPage from '../ErrorPage';
-import UserCard from '../UserCard';
+import UserCard from './UsersList/UserCard';
 import Header from '../Header/Header';
 
 class UsersList extends Component {

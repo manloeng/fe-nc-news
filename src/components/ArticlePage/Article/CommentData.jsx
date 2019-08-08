@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import * as api from '../api';
+import * as api from '../../api';
 
 const CommentData = ({ comment_id, author, body, created_at, votes, user, handleClick }) => {
 	return (

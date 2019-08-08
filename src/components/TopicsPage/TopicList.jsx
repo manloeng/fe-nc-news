@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './TopicList.css';
-import TopicForm from './TopicForm';
-import TopicCard from './TopicCard';
+import TopicForm from './TopicList/TopicForm';
+import TopicCard from './TopicList/TopicCard';
 import Header from '../Header/Header';
 
 class TopicList extends Component {

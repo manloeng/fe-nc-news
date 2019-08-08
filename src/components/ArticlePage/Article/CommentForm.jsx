@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import * as api from '../api';
+import * as api from '../../api';
 
 class CommentForm extends Component {
 	state = {

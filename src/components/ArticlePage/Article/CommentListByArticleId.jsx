@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './CommentListByArticleId.css';
-import * as api from '../api';
+import * as api from '../../api';
 import CommentForm from './CommentForm';
 import CommentData from './CommentData';
 
