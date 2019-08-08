@@ -5,7 +5,7 @@ import './Article.css';
 import ErrorPage from '../ErrorPage';
 import CommentListByArticleId from './Article/CommentListByArticleId';
 import ArticleData from './Article/ArticleData';
-import Spinner from 'react-bootstrap/Spinner';
+import Loader from '../Loader/Loader';
 
 class Article extends Component {
 	state = {
@@ -40,9 +40,7 @@ class Article extends Component {
 
 		if (err) return <ErrorPage />;
 		return !articleData ? (
-			<Spinner animation="border" role="status">
-				<span className="sr-only">Loading...</span>
-			</Spinner>
+			<Loader />
 		) : (
 			<section className="article">
 				<ArticleData {...articleData} />

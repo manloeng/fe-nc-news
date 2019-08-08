@@ -4,7 +4,7 @@ import * as api from '../api';
 import Header from '../Header/Header';
 import './ArticleListByTopicSlug.css';
 import Pagination from '../Pagination/Pagination';
-import Spinner from 'react-bootstrap/Spinner';
+import Loader from '../Loader/Loader';
 
 class ArticleListByTopicSlug extends Component {
 	state = {
@@ -50,9 +50,7 @@ class ArticleListByTopicSlug extends Component {
 					{err && <p>No Articles Found</p>}
 
 					{!articleDataByTopicSlug && !err ? (
-						<Spinner animation="border" role="status">
-							<span className="sr-only">Loading...</span>
-						</Spinner>
+						<Loader />
 					) : (
 						!err &&
 						articleDataByTopicSlug.articles.map((article) => {

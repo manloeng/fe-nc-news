@@ -4,7 +4,7 @@ import ErrorPage from '../ErrorPage';
 import UserCard from './UsersList/UserCard';
 import Header from '../Header/Header';
 import './UsersList.css';
-import Spinner from 'react-bootstrap/Spinner';
+import Loader from '../Loader/Loader';
 
 class UsersList extends Component {
 	state = {
@@ -33,9 +33,7 @@ class UsersList extends Component {
 		const { path } = this.props;
 		if (err) return <ErrorPage {...err} />;
 		return !usersList ? (
-			<Spinner animation="border" role="status">
-				<span className="sr-only">Loading...</span>
-			</Spinner>
+			<Loader />
 		) : (
 			<section className="usersSection">
 				<Header route={path} />

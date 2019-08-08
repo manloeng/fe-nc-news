@@ -4,7 +4,7 @@ import ErrorPage from '../ErrorPage';
 import './user.css';
 import Header from '../Header/Header';
 import Image from 'react-bootstrap/Image';
-import Spinner from 'react-bootstrap/Spinner';
+import Loader from '../Loader/Loader';
 
 class User extends Component {
 	state = {
@@ -34,9 +34,7 @@ class User extends Component {
 
 		if (err) return <ErrorPage {...err} />;
 		return !userData ? (
-			<Spinner animation="border" role="status">
-				<span className="sr-only">Loading...</span>
-			</Spinner>
+			<Loader />
 		) : (
 			<section className="userSection">
 				<Header route={username} />

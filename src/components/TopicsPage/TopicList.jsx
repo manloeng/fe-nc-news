@@ -3,15 +3,13 @@ import './TopicList.css';
 import TopicForm from './TopicList/TopicForm';
 import TopicCard from './TopicList/TopicCard';
 import Header from '../Header/Header';
-import Spinner from 'react-bootstrap/Spinner';
+import Loader from '../Loader/Loader';
 
 class TopicList extends Component {
 	render() {
 		const { topicsData, updateTopicsList, path, user } = this.props;
 		return !topicsData ? (
-			<Spinner animation="border" role="status">
-				<span className="sr-only">Loading...</span>
-			</Spinner>
+			<Loader />
 		) : (
 			<section className="topicsSection">
 				<Header route={path} />
