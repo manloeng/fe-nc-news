@@ -1,5 +1,6 @@
 h1 {
-	font-size: 1em;
-	padding: 0.25em;
-	border: 1px solid rebeccapurple;
+	font-size: 2rem;
+	padding: 1rem;
+	border-bottom: 1px solid grey;
+	box-shadow: 0.05rem 0.05rem 0.05rem 0.01rem grey;
 }
