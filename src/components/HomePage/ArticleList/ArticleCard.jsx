@@ -14,12 +14,24 @@ class ArticleCard extends Component {
 							<u>{title}</u>
 						</h3>
 					</Link>
-					<p>Comment Count: {comment_count}</p>
+					<p>
+						<i class="fa fa-comments-o fa-2x" aria-hidden="true" /> {comment_count}
+					</p>
 					<Link to={`/explore/${topic}`}>Topic: {topic}</Link>
 					<br />
 					<Link to={`/users/${author}`}>By: {author}</Link>
-					<p>Votes: {votes}</p>
-					<p>Created at :{api.convertDateFormat(created_at)}</p>
+					<p>
+						<span role="img" aria-label="upVote">
+							❤
+						</span>
+						{votes}
+					</p>
+					<p>
+						<span role="img" aria-label="created_at">
+							🗓
+						</span>
+						{api.convertDateFormat(created_at)}
+					</p>
 				</li>
 			</ul>
 		);
