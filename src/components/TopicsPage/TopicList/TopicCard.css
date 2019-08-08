@@ -1,0 +1,8 @@
+#topicJumbo {
+	margin: 0.5rem 0;
+	padding: 0.5rem;
+	background-color: whitesmoke;
+	border-radius: 1rem;
+	border: 1px solid black;
+	box-shadow: 5px 10px #888888;
+}
