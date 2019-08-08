@@ -27,7 +27,7 @@ const ArticleData = ({ title, topic, author, body, votes, created_at, comment_co
 						{api.convertDateFormat(created_at)}
 					</p>
 					<p>
-						<i class="fa fa-comments-o fa-2x" aria-hidden="true" /> {comment_count}
+						<i className="fa fa-comments-o fa-2x" aria-hidden="true" /> {comment_count}
 					</p>
 				</li>
 			</ul>

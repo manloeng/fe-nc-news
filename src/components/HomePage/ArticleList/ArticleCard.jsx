@@ -15,7 +15,7 @@ class ArticleCard extends Component {
 						</h3>
 					</Link>
 					<p>
-						<i class="fa fa-comments-o fa-2x" aria-hidden="true" /> {comment_count}
+						<i className="fa fa-comments-o fa-2x" aria-hidden="true" /> {comment_count}
 					</p>
 					<Link to={`/explore/${topic}`}>Topic: {topic}</Link>
 					<br />

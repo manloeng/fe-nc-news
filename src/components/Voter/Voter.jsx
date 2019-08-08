@@ -31,7 +31,7 @@ class Voter extends Component {
 					}}
 					disabled={inc_votes >= 1}
 				>
-					<i class="fa fa-arrow-up" aria-hidden="true" />
+					<i className="fa fa-arrow-up" aria-hidden="true" />
 				</button>
 				<p>Votes: {inc_votes + votes}</p>
 				<button
@@ -40,7 +40,7 @@ class Voter extends Component {
 					}}
 					disabled={inc_votes <= -1}
 				>
-					<i class="fa fa-arrow-down" aria-hidden="true" />
+					<i className="fa fa-arrow-down" aria-hidden="true" />
 				</button>
 			</div>
 		);
