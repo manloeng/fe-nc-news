@@ -13,6 +13,7 @@ const ArticleSorter = ({ handleChange }) => {
 						<option>Date</option>
 						<option>Author</option>
 						<option>Topic</option>
+						<option>Comment Count</option>
 					</Form.Control>
 				</Form.Group>
 

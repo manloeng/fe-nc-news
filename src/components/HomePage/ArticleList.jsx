@@ -54,6 +54,9 @@ class ArticleList extends Component {
 			if (sort_by === 'Date') {
 				sort_by = 'created_at';
 			}
+			if (sort_by === 'Comment Count') {
+				sort_by = 'comment_count';
+			}
 			this.fetchArticleData({ sort_by: sort_by.toLowerCase(), order: order.toLowerCase() });
 		}
 	}
