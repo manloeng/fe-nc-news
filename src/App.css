@@ -34,5 +34,5 @@ p {
 
 #navbar {
 	height: 100vh;
-	border: 1px solid red;
+	border-right: 1px solid grey;
 }
