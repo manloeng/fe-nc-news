@@ -3,6 +3,8 @@ import Header from '../../Header/Header';
 import { Link } from '@reach/router';
 import * as api from '../../api';
 import Voter from '../../Voter/Voter';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import './ArticleData.css';
 
 const ArticleData = ({ title, topic, author, body, votes, created_at, comment_count, article_id }) => {
 	return (
@@ -14,9 +16,9 @@ const ArticleData = ({ title, topic, author, body, votes, created_at, comment_co
 					<Link to={`/explore/${topic}`}>Topic: {topic}</Link>
 					<br />
 					<Link to={`/users/${author}`}>By: {author}</Link>
-					<article>
+					<Jumbotron id="articleJumbo" fluid>
 						<p>{body}</p>
-					</article>
+					</Jumbotron>
 					<Voter votes={votes} article_id={article_id} />
 					<p>
 						<span role="img" aria-label="created_at">
