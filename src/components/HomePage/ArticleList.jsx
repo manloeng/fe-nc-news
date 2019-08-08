@@ -6,6 +6,7 @@ import ArticleForm from '../ArticleForm/ArticleForm';
 import ErrorPage from '../ErrorPage';
 import Header from '../Header/Header';
 import ArticleSorter from '../ArticleSorter/ArticleSorter';
+import Button from 'react-bootstrap/Button';
 
 class ArticleList extends Component {
 	state = {
@@ -69,13 +70,19 @@ class ArticleList extends Component {
 		return !articleListData ? (
 			<p>loading...</p>
 		) : (
-			<section id="articleCardSection">
-				<Header route={path} />
-				<ArticleSorter handleChange={this.handleChange} />
-				{user ? <ArticleForm user={user} topicsData={topicsData} updateArticlesList={this.updateArticlesList} /> : null}
-				{articleListData.articles.map((article) => {
-					return <ArticleCard article={article} key={article.article_id} />;
-				})}
+			<section>
+				<section id="articleCardSection">
+					<Header route={path} />
+					<ArticleSorter handleChange={this.handleChange} />
+					{user ? (
+						<ArticleForm user={user} topicsData={topicsData} updateArticlesList={this.updateArticlesList} />
+					) : null}
+					{articleListData.articles.map((article) => {
+						return <ArticleCard article={article} key={article.article_id} />;
+					})}
+				</section>
+				<Button id="pagination">prev</Button>
+				<Button id="pagination">next</Button>
 			</section>
 		);
 	}
