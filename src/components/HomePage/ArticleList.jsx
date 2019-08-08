@@ -6,7 +6,7 @@ import ArticleForm from '../ArticleForm/ArticleForm';
 import ErrorPage from '../ErrorPage';
 import Header from '../Header/Header';
 import ArticleSorter from '../ArticleSorter/ArticleSorter';
-import Button from 'react-bootstrap/Button';
+import Pagination from '../Pagination/Pagination';
 
 class ArticleList extends Component {
 	state = {
@@ -81,8 +81,7 @@ class ArticleList extends Component {
 						return <ArticleCard article={article} key={article.article_id} />;
 					})}
 				</section>
-				<Button id="pagination">prev</Button>
-				<Button id="pagination">next</Button>
+				<Pagination />
 			</section>
 		);
 	}
