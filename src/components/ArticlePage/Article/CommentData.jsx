@@ -5,6 +5,7 @@ import Voter from '../../Voter/Voter';
 import { Link } from '@reach/router';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import './CommentData.css';
+import DeleteModal from '../../DeleteModal/DeleteModal';
 
 const CommentData = ({ comment_id, author, body, created_at, votes, user, handleClick }) => {
 	return (
@@ -21,11 +22,7 @@ const CommentData = ({ comment_id, author, body, created_at, votes, user, handle
 					</span>
 					{api.convertDateFormat(created_at)}
 				</p>
-				{user === author && (
-					<Button variant="danger" onClick={handleClick} name={comment_id}>
-						Delete Comment
-					</Button>
-				)}
+				{user === author && <DeleteModal handleClick={handleClick} comment_id={comment_id} />}
 			</li>
 		</div>
 	);
