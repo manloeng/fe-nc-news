@@ -6,7 +6,7 @@ import Voter from '../../Voter/Voter';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import './ArticleData.css';
 
-const ArticleData = ({ title, topic, author, body, votes, created_at, comment_count, article_id }) => {
+const ArticleData = ({ title, topic, author, body, votes, created_at, comment_count, article_id, user }) => {
 	return (
 		<div>
 			<Header route={'Article'} />
@@ -19,7 +19,7 @@ const ArticleData = ({ title, topic, author, body, votes, created_at, comment_co
 					<Jumbotron id="articleJumbo" fluid>
 						<p>{body}</p>
 					</Jumbotron>
-					<Voter votes={votes} article_id={article_id} />
+					<Voter votes={votes} article_id={article_id} user={user} />
 					<p>
 						<span role="img" aria-label="created_at">
 							🗓

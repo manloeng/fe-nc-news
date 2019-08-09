@@ -43,7 +43,7 @@ class Article extends Component {
 			<Loader />
 		) : (
 			<section className="article">
-				<ArticleData {...articleData} />
+				<ArticleData {...articleData} user={user} />
 				{user === articleData.author && (
 					<Button variant="danger" onClick={this.handleClick}>
 						Delete Article
