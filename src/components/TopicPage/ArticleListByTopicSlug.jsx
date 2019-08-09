@@ -37,7 +37,7 @@ class ArticleListByTopicSlug extends Component {
 		}
 	}
 
-	fetchArticleDataByTopicSlug = (sort_by = 'created_at', order = 'desc') => {
+	fetchArticleDataByTopicSlug = (sort_by, order) => {
 		const { topic_slug } = this.props;
 		const query = { topic: topic_slug, sort_by, order };
 
