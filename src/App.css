@@ -32,6 +32,10 @@ p {
 	padding: 0;
 }
 
+.img-fluid {
+	max-width: 200px;
+}
+
 #navbar {
 	height: 100vh;
 	border-right: 1px solid grey;
