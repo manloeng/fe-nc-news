@@ -79,7 +79,7 @@ class ArticleList extends Component {
 				<section id="articleCardSection">
 					<Header route={path} />
 					<ArticleSorter handleChange={this.handleChange} />
-					<AddArticleModal user={user} topicsData={topicsData} />
+					<AddArticleModal user={user} topicsData={topicsData} updateArticlesList={this.updateArticlesList} />
 					{articleListData.articles.map((article) => {
 						return <ArticleCard article={article} key={article.article_id} />;
 					})}
