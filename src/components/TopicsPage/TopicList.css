@@ -2,6 +2,11 @@
 	margin: 0.25em;
 }
 
+.topicsSection {
+	height: 85vh;
+	overflow: auto;
+}
+
 #topicSection {
 	border: 0.1rem solid goldenrod;
 	border-radius: 1rem;
