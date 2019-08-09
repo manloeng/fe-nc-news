@@ -3,6 +3,7 @@ import './CommentListByArticleId.css';
 import * as api from '../../api';
 import CommentForm from './CommentForm';
 import CommentData from './CommentData';
+import Loader from '../../Loader/Loader';
 
 class CommentListByArticleId extends Component {
 	state = {
@@ -40,7 +41,7 @@ class CommentListByArticleId extends Component {
 		const { commentListData } = this.state;
 		const { user, article_id } = this.props;
 		return !commentListData ? (
-			<p>loading...</p>
+			<Loader />
 		) : (
 			<section>
 				<article id="commentListByArticleId">
