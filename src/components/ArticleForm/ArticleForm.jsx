@@ -8,7 +8,8 @@ class ArticleForm extends Component {
 	state = {
 		articleTitle: '',
 		topicInput: '',
-		articleDescription: ''
+		articleDescription: '',
+		err: null
 	};
 
 	handleSelect = (e) => {
@@ -21,13 +22,18 @@ class ArticleForm extends Component {
 	};
 
 	handleSubmit = (e) => {
-		const { updateArticlesList, user } = this.props;
+		const { updateArticlesList, user, handleClose } = this.props;
 		e.preventDefault();
-		const { ...restOfState } = this.state;
+		const { err, ...restOfState } = this.state;
+
+		if (err) this.setState({ err: null });
 		api
 			.postArticleData(restOfState, user)
 			.then((article) => {
 				updateArticlesList(article);
+				if (this.state.topicInput) {
+					handleClose();
+				}
 				this.setState({
 					articleTitle: '',
 					topicInput: '',
@@ -36,18 +42,23 @@ class ArticleForm extends Component {
 			})
 			.catch((err) => {
 				const { status, data } = err.response;
-				this.setState({ err: { status, msg: data.msg } });
+				this.setState({
+					err: { status, msg: data.msg },
+					articleTitle: '',
+					topicInput: '',
+					articleDescription: ''
+				});
 			});
 	};
 
 	render() {
 		const { articleTitle, topicInput, articleDescription, err } = this.state;
-		const { topicsData, handleClose } = this.props;
+		const { topicsData } = this.props;
 
 		return (
 			<div>
 				{err && <p className="selectTopic">Please Select Topic!</p>}
-				<Form id="articleInput" onSubmit={this.handleSubmit && handleClose}>
+				<Form id="articleInput" onSubmit={this.handleSubmit}>
 					<Form.Group controlId="exampleForm.ControlInput1">
 						<Form.Label>Article Title: </Form.Label>
 						<Form.Control
