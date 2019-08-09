@@ -14,7 +14,7 @@ const CommentData = ({ comment_id, author, body, created_at, votes, user, handle
 				<Jumbotron id="commentJumbo" fluid>
 					<p>{body}</p>
 				</Jumbotron>
-				<Voter votes={votes} comment_id={comment_id} />
+				<Voter votes={votes} comment_id={comment_id} user={user} />
 				<p>
 					<span role="img" aria-label="created_at">
 						🗓

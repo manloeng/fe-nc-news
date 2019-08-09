@@ -20,28 +20,32 @@ class Voter extends Component {
 	};
 
 	render() {
-		const { votes } = this.props;
+		const { votes, user } = this.props;
 		const { inc_votes } = this.state;
 
 		return (
 			<div className="voteIcon">
-				<button
-					onClick={(e) => {
-						this.updateVote(1);
-					}}
-					disabled={inc_votes >= 1}
-				>
-					<i className="fa fa-arrow-up" aria-hidden="true" />
-				</button>
+				{user && (
+					<button
+						onClick={(e) => {
+							this.updateVote(1);
+						}}
+						disabled={inc_votes >= 1}
+					>
+						<i className="fa fa-arrow-up" aria-hidden="true" />
+					</button>
+				)}
 				<p>Votes: {inc_votes + votes}</p>
-				<button
-					onClick={(e) => {
-						this.updateVote(-1);
-					}}
-					disabled={inc_votes <= -1}
-				>
-					<i className="fa fa-arrow-down" aria-hidden="true" />
-				</button>
+				{user && (
+					<button
+						onClick={(e) => {
+							this.updateVote(-1);
+						}}
+						disabled={inc_votes <= -1}
+					>
+						<i className="fa fa-arrow-down" aria-hidden="true" />
+					</button>
+				)}
 			</div>
 		);
 	}
