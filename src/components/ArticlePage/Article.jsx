@@ -43,12 +43,14 @@ class Article extends Component {
 			<Loader />
 		) : (
 			<section className="article">
-				<ArticleData {...articleData} user={user} />
-				{user === articleData.author && (
-					<Button variant="danger" onClick={this.handleClick}>
-						Delete Article
-					</Button>
-				)}
+				<div className="articleDivider">
+					<ArticleData {...articleData} user={user} />
+					{user === articleData.author && (
+						<Button variant="danger" onClick={this.handleClick}>
+							Delete Article
+						</Button>
+					)}
+				</div>
 				<CommentListByArticleId article_id={article_id} user={user} />
 			</section>
 		);
