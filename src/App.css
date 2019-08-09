@@ -51,6 +51,25 @@ ul {
 	}
 }
 
+@media only screen and (max-width: 700px) and (orientation: landscape) {
+	.fa-4x {
+		font-size: 2em;
+	}
+	div #homeLink {
+		margin-bottom: 0px;
+	}
+	div #userLink {
+		margin-bottom: 0px;
+	}
+
+	#user a img {
+		max-width: 50px;
+	}
+	.fa-3x {
+		font-size: 2em;
+	}
+}
+
 .App {
 	font-family: monospace;
 }
