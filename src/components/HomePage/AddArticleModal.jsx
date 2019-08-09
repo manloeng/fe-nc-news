@@ -19,7 +19,7 @@ class AddArticleModal extends Component {
 
 	render() {
 		const { show } = this.state;
-		const { user, topicsData } = this.props;
+		const { user, topicsData, updateArticlesList } = this.props;
 		return (
 			<div>
 				<Button variant="primary" onClick={this.handleShow}>
@@ -34,7 +34,7 @@ class AddArticleModal extends Component {
 						<ArticleForm
 							user={user}
 							topicsData={topicsData}
-							updateArticlesList={this.updateArticlesList}
+							updateArticlesList={updateArticlesList}
 							handleClose={this.handleClose}
 						/>
 					) : (
