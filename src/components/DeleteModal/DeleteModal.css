@@ -1,0 +1,9 @@
+#btnYes {
+	display: inline-flex;
+	width: 25%;
+}
+
+#btnNo {
+	display: inline-flex;
+	width: 25%;
+}
