@@ -15,7 +15,9 @@ class TopicForm extends Component {
 	};
 
 	handleSubmit = (e) => {
+		const { handleClose } = this.props;
 		e.preventDefault();
+		handleClose();
 		const { updateTopicsList } = this.props;
 		const { ...restOfState } = this.state;
 		api
@@ -36,7 +38,7 @@ class TopicForm extends Component {
 					<Form.Control
 						type="text"
 						placeholder="Enter Topic Title"
-						name="topicTitle"
+						name="topicSlug"
 						onChange={this.handleChange}
 						required
 					/>
