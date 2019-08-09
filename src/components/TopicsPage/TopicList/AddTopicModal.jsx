@@ -29,7 +29,11 @@ class AddTopicModal extends Component {
 					<Modal.Header closeButton>
 						<Modal.Title>Add Topic</Modal.Title>
 					</Modal.Header>
-					{user ? <TopicForm updateTopicsList={updateTopicsList} /> : <p>Please log in!</p>}
+					{user ? (
+						<TopicForm updateTopicsList={updateTopicsList} handleClose={this.handleClose} />
+					) : (
+						<p>Please log in!</p>
+					)}
 				</Modal>
 			</div>
 		);
