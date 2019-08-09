@@ -2,6 +2,10 @@
 	min-height: 150px;
 }
 
+#userProfile:hover {
+	background-color: whitesmoke;
+}
+
 .userCardSection {
 	display: inline-flex;
 	flex-wrap: wrap;
