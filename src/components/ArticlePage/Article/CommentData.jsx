@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import * as api from '../../api';
 import Voter from '../../Voter/Voter';
 import { Link } from '@reach/router';
