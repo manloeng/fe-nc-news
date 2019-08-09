@@ -4,6 +4,7 @@ import TopicForm from './TopicList/TopicForm';
 import TopicCard from './TopicList/TopicCard';
 import Header from '../Header/Header';
 import Loader from '../Loader/Loader';
+import AddTopicModal from './TopicList/AddTopicModal';
 
 class TopicList extends Component {
 	render() {
@@ -13,7 +14,7 @@ class TopicList extends Component {
 		) : (
 			<section className="topicsSection">
 				<Header route={path} />
-				{user && <TopicForm updateTopicsList={updateTopicsList} />}
+				<AddTopicModal user={user} updateTopicsList={updateTopicsList} />
 				<div className="topicCardSection">
 					{topicsData.map((topic) => {
 						return <TopicCard {...topic} key={topic.slug} />;
