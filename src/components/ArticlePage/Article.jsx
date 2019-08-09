@@ -6,6 +6,7 @@ import ErrorPage from '../ErrorPage';
 import CommentListByArticleId from './Article/CommentListByArticleId';
 import ArticleData from './Article/ArticleData';
 import Loader from '../Loader/Loader';
+import DeleteModal from '../DeleteModal/DeleteModal';
 
 class Article extends Component {
 	state = {
@@ -45,11 +46,7 @@ class Article extends Component {
 			<section className="article">
 				<div className="articleDivider">
 					<ArticleData {...articleData} user={user} />
-					{user === articleData.author && (
-						<Button variant="danger" onClick={this.handleClick}>
-							Delete Article
-						</Button>
-					)}
+					{user === articleData.author && <DeleteModal user={user} />}
 				</div>
 				<CommentListByArticleId article_id={article_id} user={user} />
 			</section>
