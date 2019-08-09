@@ -1,68 +1,90 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project NC News The App
 
-## Available Scripts
+App that fetches data from the Northcoder's News Database and displays it on the web.
 
-In the project directory, you can run:
+- Currently this project is hosted on https://project-nc-news.netlify.com/
+- And the repo can be found on https://github.com/manloeng/fe-nc-news
 
-### `npm start`
+### Back-end of Nc-News
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Currently the back end of the project is hosted on https://project-nc-news.herokuapp.com/api
+- And the repo can be found on https://github.com/manloeng/nc-news
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Prerequisites
 
-### `npm test`
+What things you need:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `Code Editor` (We're using Visual Studio Code)
+- `Node.js` (Version to Date : v12.1.0)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Step 1 - Setting up your own repository
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+`Clone` the repo:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/manloeng/nc-news
 
-### `npm run eject`
+cd nc-news
+```
+Once you have cloned the repo, you should have the repo on your system.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+You will need to install the required modules to run the api successfully.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Step 2 - Installing
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+On your terminal you will want to run:
+```bash
+npm install
+```
+This will install all the modules that are listed in the `package.json`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Step 3 - Starting Up The Project
 
-## Learn More
+`npm run start` will start up the server on its default `PORT` of `3000`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+you should see this message on your terminal:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+Starting the development server...
 
-### Code Splitting
+```
+After a short period of time you will see:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```bash
+Starting the development server...
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+You can now view nc-news in the browser.
 
-### Making a Progressive Web App
+  Local:            http://localhost:3000/
+  On Your Network:  http://your-ip-address:3000/
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Note that the development build is not optimized.
+To create a production build, use yarn build.
+```
 
-### Advanced Configuration
+You can go over to: 
+`http://localhost:3000/`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+to see your server running from your local computer.
 
-### Deployment
+If you want to stop the server, you will need to hit `Ctrl+C` on the terminal.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### Navigating around
 
-### `npm run build` fails to minify
+The endpoints within this app are:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- `http://localhost:3000/articles`
+- `http://localhost:3000/articles/:article_id`
+- `http://localhost:3000/explore/`
+- `http://localhost:3000/explore/:topic`
+- `http://localhost:3000/users/:username`
+
+
+## Authors
+
+* **Andrew Chung** - *Initial work* - [Andrew Chung](https://github.com/manloeng/fe-nc-news)
+
+
+
