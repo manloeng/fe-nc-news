@@ -18,7 +18,6 @@ class DeleteModal extends Component {
 
 	render() {
 		const { show } = this.state;
-		const { user } = this.props;
 		return (
 			<div>
 				<Button variant="danger" onClick={this.handleShow}>

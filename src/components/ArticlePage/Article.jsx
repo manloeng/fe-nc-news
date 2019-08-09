@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Button from 'react-bootstrap/Button';
 import * as api from '../api';
 import './Article.css';
 import ErrorPage from '../ErrorPage';
