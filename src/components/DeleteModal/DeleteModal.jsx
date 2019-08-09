@@ -13,6 +13,8 @@ class DeleteModal extends Component {
 	};
 
 	handleClose = (e) => {
+		const { handleClick } = this.props;
+		handleClick();
 		this.setState({ show: false });
 	};
 
@@ -29,7 +31,7 @@ class DeleteModal extends Component {
 					</Modal.Header>
 					<Modal.Body>Are You Sure You Want To Delete?</Modal.Body>
 					<Modal.Footer>
-						<Button variant="outline-danger" id="btnYes" onClick={this.handleClick}>
+						<Button variant="outline-danger" id="btnYes" onClick={this.handleClose}>
 							Yes
 						</Button>
 						<Button variant="outline-dark" id="btnNo" onClick={this.handleClose}>

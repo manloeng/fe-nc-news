@@ -45,7 +45,7 @@ class Article extends Component {
 			<section className="article">
 				<div className="articleDivider">
 					<ArticleData {...articleData} user={user} />
-					{user === articleData.author && <DeleteModal user={user} />}
+					{user === articleData.author && <DeleteModal handleClick={this.handleClick} />}
 				</div>
 				<CommentListByArticleId article_id={article_id} user={user} />
 			</section>
