@@ -42,49 +42,49 @@ class ArticleForm extends Component {
 
 	render() {
 		const { articleTitle, topicInput, articleDescription, err } = this.state;
-		const { topicsData } = this.props;
+		const { topicsData, handleClose } = this.props;
 
 		return (
-			<>
-			{err && <p className="selectTopic">Please Select Topic!</p>}
-			<Form id="articleInput" onSubmit={this.handleSubmit}>
-				<Form.Group controlId="exampleForm.ControlInput1">
-					<Form.Label>Article Title: </Form.Label>
-					<Form.Control
-						type="text"
-						placeholder="Enter Article Title"
-						name="articleTitle"
-						onChange={this.handleChange}
-						value={articleTitle}
-						required
-					/>
-				</Form.Group>
-				<Form.Group controlId="exampleForm.ControlSelect1">
-					<Form.Label>Select Topic</Form.Label>
-					<Form.Control as="select" onChange={this.handleSelect} value={topicInput}>
-						<option>Select Topic</option>
-						{topicsData.map((topic) => {
-							return <option key={topic.slug}>{topic.slug}</option>;
-						})}
-					</Form.Control>
-				</Form.Group>
-				<Form.Group controlId="exampleForm.ControlTextarea1">
-					<Form.Label>Article Description: </Form.Label>
-					<Form.Control
-						as="textarea"
-						rows="3"
-						name="articleDescription"
-						placeholder="Enter Article Description"
-						onChange={this.handleChange}
-						value={articleDescription}
-						required
-					/>
-				</Form.Group>
-				<Button variant="primary" type="submit">
-					Submit
-				</Button>
-			</Form>
-			</>
+			<div>
+				{err && <p className="selectTopic">Please Select Topic!</p>}
+				<Form id="articleInput" onSubmit={this.handleSubmit && handleClose}>
+					<Form.Group controlId="exampleForm.ControlInput1">
+						<Form.Label>Article Title: </Form.Label>
+						<Form.Control
+							type="text"
+							placeholder="Enter Article Title"
+							name="articleTitle"
+							onChange={this.handleChange}
+							value={articleTitle}
+							required
+						/>
+					</Form.Group>
+					<Form.Group controlId="exampleForm.ControlSelect1">
+						<Form.Label>Select Topic</Form.Label>
+						<Form.Control as="select" onChange={this.handleSelect} value={topicInput}>
+							<option>Select Topic</option>
+							{topicsData.map((topic) => {
+								return <option key={topic.slug}>{topic.slug}</option>;
+							})}
+						</Form.Control>
+					</Form.Group>
+					<Form.Group controlId="exampleForm.ControlTextarea1">
+						<Form.Label>Article Description: </Form.Label>
+						<Form.Control
+							as="textarea"
+							rows="3"
+							name="articleDescription"
+							placeholder="Enter Article Description"
+							onChange={this.handleChange}
+							value={articleDescription}
+							required
+						/>
+					</Form.Group>
+					<Button variant="primary" type="submit">
+						Submit
+					</Button>
+				</Form>
+			</div>
 		);
 	}
 }
