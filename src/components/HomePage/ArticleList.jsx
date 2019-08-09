@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import './ArticleList.css';
 import ArticleCard from './ArticleList/ArticleCard';
 import * as api from '../api';
-import ArticleForm from '../ArticleForm/ArticleForm';
 import ErrorPage from '../ErrorPage';
 import Header from '../Header/Header';
 import ArticleSorter from '../ArticleSorter/ArticleSorter';
 import Pagination from '../Pagination/Pagination';
 import Loader from '../Loader/Loader';
+import AddArticleModal from './AddArticleModal';
 
 class ArticleList extends Component {
 	state = {
@@ -73,21 +73,19 @@ class ArticleList extends Component {
 
 		if (err) return <ErrorPage {...err} />;
 		return !articleListData ? (
-			<Loader/>
+			<Loader />
 		) : (
-			<>
+			<div>
 				<section id="articleCardSection">
 					<Header route={path} />
 					<ArticleSorter handleChange={this.handleChange} />
-					{user ? (
-						<ArticleForm user={user} topicsData={topicsData} updateArticlesList={this.updateArticlesList} />
-					) : null}
+					<AddArticleModal user={user} topicsData={topicsData} />
 					{articleListData.articles.map((article) => {
 						return <ArticleCard article={article} key={article.article_id} />;
 					})}
 				</section>
 				<Pagination articleListData={articleListData} updateViaPagination={this.updateViaPagination} />
-			</>
+			</div>
 		);
 	}
 }
