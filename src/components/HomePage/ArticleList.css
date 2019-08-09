@@ -4,6 +4,10 @@
 	margin-bottom: 1rem;
 }
 
+#articleCard:hover {
+	background-color: whitesmoke;
+}
+
 ::-webkit-scrollbar {
 	width: 1rem;
 }
