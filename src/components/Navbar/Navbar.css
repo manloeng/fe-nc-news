@@ -35,20 +35,18 @@ div .addPost {
 }
 
 #userLink {
-	margin-bottom: 0.5rem;
+	margin-bottom: 1rem;
 }
 
 #homeLink {
-	margin-bottom: 0.5rem;
+	margin-bottom: 1rem;
 }
 
 #usersLink {
-	margin-bottom: 0.5rem;
+	margin-bottom: 1rem;
 }
 
 #profile {
-	padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-	max-width: 250px;
 	margin: auto;
 }
 
@@ -60,9 +58,18 @@ div .addPost {
 	max-width: 100px;
 }
 
+.logoImg {
+	padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+	max-width: 200px;
+}
+
 @media only screen and (max-width: 600px) {
 	.col-4 {
 		min-width: 90px;
+	}
+	.logoImg {
+		padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+		max-width: 100px;
 	}
 }
 

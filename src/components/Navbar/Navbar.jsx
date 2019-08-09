@@ -12,7 +12,7 @@ const Navbar = ({ topicsData, user, avatar_url }) => {
 		<nav id="navbar">
 			<Row id="profile">
 				<Link to="/">
-					<Image src={Img} fluid />
+					<Image src={Img} className="logoImg" fluid />
 				</Link>
 			</Row>
 			<Row>
@@ -31,10 +31,13 @@ const Navbar = ({ topicsData, user, avatar_url }) => {
 			<Row id="userLink">
 				<Link to={`/users/${user}`}>{user}</Link>
 			</Row>
-			<Row id="usersLink">
-				<Link to="/users">
-					<i className="fa fa-user fa-3x" aria-hidden="true" /> Users
+			<Row id="user">
+				<Link to={`/users`}>
+					<i className="fa fa-user fa-3x" aria-hidden="true" />
 				</Link>
+			</Row>
+			<Row id="usersLink">
+				<Link to="/users">Users</Link>
 			</Row>
 			<Row id="splitBtnRow">
 				<SplitButton
