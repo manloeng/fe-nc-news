@@ -53,8 +53,11 @@ div .addPost {
 }
 
 #user {
-	max-width: 100px;
 	margin: auto;
+}
+
+.avatarImg {
+	max-width: 100px;
 }
 
 @media only screen and (max-width: 600px) {

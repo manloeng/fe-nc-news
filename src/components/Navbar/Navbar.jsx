@@ -25,7 +25,7 @@ const Navbar = ({ topicsData, user, avatar_url }) => {
 			</Row>
 			<Row id="user">
 				<Link to={`/users/${user}`}>
-					<Image src={`${avatar_url}`} fluid />
+					<Image src={`${avatar_url}`} className="avatarImg" fluid />
 				</Link>
 			</Row>
 			<Row id="userLink">
