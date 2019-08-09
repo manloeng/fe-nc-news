@@ -10,23 +10,39 @@ import ArticleSorter from '../ArticleSorter/ArticleSorter';
 class ArticleListByTopicSlug extends Component {
 	state = {
 		articleDataByTopicSlug: null,
-		err: null
+		err: null,
+		sort_by: 'Date',
+		order: 'Desc'
 	};
 
 	componentDidMount() {
 		this.fetchArticleDataByTopicSlug();
 	}
 
-	componentDidUpdate(prevProp) {
-		if (prevProp.topic_slug !== this.props.topic_slug) {
+	componentDidUpdate(prevProp, prevState) {
+		const { topic_slug } = this.props;
+		if (prevProp.topic_slug !== topic_slug) {
 			this.fetchArticleDataByTopicSlug();
+		}
+
+		let { sort_by, order } = this.state;
+		if (prevState.sort_by !== sort_by || prevState.order !== order) {
+			if (sort_by === 'Date') {
+				sort_by = 'created_at';
+			}
+			if (sort_by === 'Comment Count') {
+				sort_by = 'comment_count';
+			}
+			this.fetchArticleDataByTopicSlug(sort_by.toLowerCase(), order.toLowerCase());
 		}
 	}
 
-	fetchArticleDataByTopicSlug = () => {
+	fetchArticleDataByTopicSlug = (sort_by = 'created_at', order = 'desc') => {
 		const { topic_slug } = this.props;
+		const query = { topic: topic_slug, sort_by, order };
+
 		api
-			.getArticleDataByTopicSlug(topic_slug)
+			.getArticleDataByTopicSlug(query)
 			.then((data) => {
 				this.setState({ articleDataByTopicSlug: data, err: null });
 			})
@@ -38,6 +54,11 @@ class ArticleListByTopicSlug extends Component {
 
 	updateViaPagination = (articleDataByTopicSlug) => {
 		this.setState({ articleDataByTopicSlug });
+	};
+
+	handleChange = (e) => {
+		const { id, value } = e.target;
+		this.setState({ [id]: value });
 	};
 
 	render() {
@@ -52,7 +73,7 @@ class ArticleListByTopicSlug extends Component {
 					{err && <p>No Articles Found</p>}
 
 					{/*  if !err and articles are found show sorter*/}
-					{articleDataByTopicSlug && !err && <ArticleSorter />}
+					{articleDataByTopicSlug && !err && <ArticleSorter handleChange={this.handleChange} />}
 
 					{/*  if !err and !articles found show loader*/}
 					{!articleDataByTopicSlug && !err ? (

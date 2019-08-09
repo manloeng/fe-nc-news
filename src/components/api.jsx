@@ -19,8 +19,8 @@ export const getArticleDataByArticleId = (article_id) => {
 	});
 };
 
-export const getArticleDataByTopicSlug = (topic_slug) => {
-	return request.get(`/articles`, { params: { topic: topic_slug } }).then(({ data }) => {
+export const getArticleDataByTopicSlug = (query) => {
+	return request.get(`/articles`, { params: query }).then(({ data }) => {
 		return data;
 	});
 };
