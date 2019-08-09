@@ -44,3 +44,9 @@ p {
 ul {
 	list-style-type: none;
 }
+
+@media only screen and (max-width: 600px) {
+	.img-fluid {
+		max-width: 100px;
+	}
+}
