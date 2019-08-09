@@ -13,14 +13,12 @@ class TopicList extends Component {
 		) : (
 			<section className="topicsSection">
 				<Header route={path} />
-				<section>
-					<figure>
-						{user && <TopicForm updateTopicsList={updateTopicsList} />}
-						{topicsData.map((topic) => {
-							return <TopicCard {...topic} key={topic.slug} />;
-						})}
-					</figure>
-				</section>
+				{user && <TopicForm updateTopicsList={updateTopicsList} />}
+				<div className="topicCardSection">
+					{topicsData.map((topic) => {
+						return <TopicCard {...topic} key={topic.slug} />;
+					})}
+				</div>
 			</section>
 		);
 	}
