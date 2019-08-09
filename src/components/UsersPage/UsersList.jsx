@@ -37,9 +37,11 @@ class UsersList extends Component {
 		) : (
 			<section className="usersSection">
 				<Header route={path} />
-				{usersList.map((user) => {
-					return <UserCard {...user} key={user.username} />;
-				})}
+				<div className="userCardSection">
+					{usersList.map((user) => {
+						return <UserCard {...user} key={user.username} />;
+					})}
+				</div>
 			</section>
 		);
 	}
