@@ -82,7 +82,7 @@ class ArticleListByTopicSlug extends Component {
 						/*  prevent null error when refreshing on the topic page*/
 						!err &&
 						articleDataByTopicSlug.articles.map((article) => {
-							return <ArticleCard article={article} key={article.article_id} />;
+							return <ArticleCard {...article} key={article.article_id} />;
 						})
 					)}
 				</section>
