@@ -5,7 +5,7 @@ import * as api from '../../api';
 
 class ArticleCard extends Component {
 	render() {
-		const { author, comment_count, created_at, title, topic, votes, article_id } = this.props;
+		const { author, comment_count, created_at, title, topic, votes, article_id } = this.props.article;
 		return (
 			<ul id="articleCard">
 				<li>
