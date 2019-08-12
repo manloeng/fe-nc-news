@@ -98,7 +98,7 @@ class ArticleList extends Component {
     if (isLoading) return <Loader />;
     return (
       <div>
-        <section className="topicSection">
+        <section id="topicsSection">
           {/*  if theres no err show  header */}
           {!topicErr && <Header route={topic_slug} />}
           {displayErr && <p>No Articles Found</p>}

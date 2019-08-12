@@ -48,7 +48,7 @@ class App extends Component {
             <Col sm={4} id="sideNav">
               <Navbar topics={topics} user={user} avatar_url={avatar_url} />
             </Col>
-            <Col s="auto">
+            <Col id="mainCol">
               <TopNavbar topics={topics} user={user} avatar_url={avatar_url} />
               <Router>
                 <TopicList path="/explore" topics={topics} user={user} updateTopicsList={this.updateTopicsList} />

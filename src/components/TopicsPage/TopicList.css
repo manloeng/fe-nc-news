@@ -1,32 +1,37 @@
 #topicInput {
-	margin: 0.25em;
+  margin: 0.25em;
 }
 
 #topicSection {
-	border: 0.1rem solid goldenrod;
-	border-radius: 1rem;
-	padding: 1rem;
-	margin: 1rem;
-	width: 30%;
+  border: 0.1rem solid goldenrod;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  width: 30%;
 }
 
 #topicSection:hover {
-	background-color: whitesmoke;
+  background-color: whitesmoke;
 }
 
 .topicCardSection {
-	display: inline-flex;
-	flex-wrap: wrap;
+  display: inline-flex;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 900px) {
-	#topicSection {
-		width: 100%;
-	}
+  #topicSection {
+    width: 100%;
+  }
 }
 
 @media (max-width: 1064px) {
-	.img-fluid {
-		max-width: 100px;
-	}
+  .img-fluid {
+    max-width: 100px;
+  }
+}
+
+#topicsSection {
+  overflow: auto;
+  height: 85vh;
 }

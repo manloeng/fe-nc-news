@@ -27,11 +27,6 @@ p {
   margin: auto;
 }
 
-.col-4,
-.col-8 {
-  padding: 0;
-}
-
 .img-fluid {
   max-width: 200px;
 }
@@ -96,4 +91,8 @@ h2 {
 #navLinks {
   align-items: center;
   justify-content: center;
+}
+
+#mainCol {
+  height: 100vh;
 }
