@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import './Pagination.css';
-import * as api from '../api';
+import * as api from '../../api';
 
 class Pagination extends Component {
 	state = {
