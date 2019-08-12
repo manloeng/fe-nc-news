@@ -9,7 +9,7 @@ import DeleteModal from '../DeleteModal/DeleteModal';
 
 class Article extends Component {
   state = {
-    articleData: null,
+    article: null,
     err: null
   };
 
@@ -21,7 +21,7 @@ class Article extends Component {
     api
       .getArticleDataByArticleId(this.props.article_id)
       .then((article) => {
-        this.setState({ articleData: article });
+        this.setState({ article });
       })
       .catch((err) => {
         const { status, data } = err.response;
@@ -35,17 +35,17 @@ class Article extends Component {
   };
 
   render() {
-    const { articleData, err } = this.state;
+    const { article, err } = this.state;
     const { user, article_id } = this.props;
 
     if (err) return <ErrorPage {...err} />;
-    return !articleData ? (
+    return !article ? (
       <Loader />
     ) : (
       <section className="article">
         <div className="articleDivider">
-          <ArticleData {...articleData} user={user} />
-          {user === articleData.author && <DeleteModal handleClick={this.handleClick} />}
+          <ArticleData {...article} user={user} />
+          {user === article.author && <DeleteModal handleClick={this.handleClick} />}
         </div>
         <CommentListByArticleId article_id={article_id} user={user} />
       </section>
