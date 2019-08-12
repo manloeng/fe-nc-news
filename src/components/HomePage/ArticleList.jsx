@@ -43,11 +43,6 @@ class ArticleList extends Component {
   fetchArticleData = (sort_by, order) => {
     const { topic_slug, topics } = this.props;
     const query = { topic: topic_slug, sort_by, order };
-    const { articleListData } = this.state;
-
-    // if (articleListData) {
-    //   this.setState({ articleListData: null });
-    // }
 
     api
       .getArticleData(query)
