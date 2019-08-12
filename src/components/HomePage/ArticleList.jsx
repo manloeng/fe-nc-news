@@ -15,7 +15,9 @@ class ArticleList extends Component {
     topicErr: null,
     err: null,
     sort_by: 'Date',
-    order: 'Desc'
+    order: 'Desc',
+    isLoading: true,
+    displayErr: false
   };
 
   componentDidMount() {
@@ -24,6 +26,7 @@ class ArticleList extends Component {
 
   componentDidUpdate(prevProp, prevState) {
     const { topic_slug } = this.props;
+
     if (prevProp.topic_slug !== topic_slug) {
       this.fetchArticleData();
     }
@@ -44,20 +47,26 @@ class ArticleList extends Component {
     const { topic_slug, topics } = this.props;
     const query = { topic: topic_slug, sort_by, order };
 
+    this.setState({ isLoading: true });
     api
       .getArticleData(query)
       .then((data) => {
-        this.setState({ articleListData: data, err: null });
+        this.setState({ articleListData: data, err: null, displayErr: false, isLoading: false });
       })
       .catch((err) => {
         const { status, data } = err.response;
         topics.forEach((topic) => {
           if (topic_slug.trim() === topic.slug.trim()) {
-            this.setState({ err: { status, msg: data.msg }, topicErr: null });
+            this.setState({ err: { status, msg: data.msg }, topicErr: null, displayErr: true, isLoading: false });
           }
         });
         if (!this.state.err) {
-          this.setState({ topicErr: { status, msg: 'Topic not found!' }, err: null });
+          this.setState({
+            topicErr: { status, msg: 'Topic not found!' },
+            err: null,
+            displayErr: true,
+            isLoading: true
+          });
         }
       });
   };
@@ -82,45 +91,34 @@ class ArticleList extends Component {
   };
 
   render() {
-    const { articleListData, err, topicErr } = this.state;
+    const { articleListData, topicErr, isLoading, displayErr } = this.state;
     const { topic_slug, user, topics, path } = this.props;
 
+    if (displayErr && topicErr) return <ErrorPage {...topicErr} />;
+    if (isLoading) return <Loader />;
     return (
       <div>
         <section className="topicSection">
           {/*  if theres no err show  header */}
-
           {!topicErr && <Header route={topic_slug} />}
+          {displayErr && <p>No Articles Found</p>}
 
-          {/*  if topic err show no topic found */}
-          {topicErr && <ErrorPage {...topicErr} />}
+          {/*  if !err and articles are found show sorter and if path is '/' show modal*/}
+          {articleListData &&
+          !displayErr && <ArticleSorter handleQueryChange={this.handleQueryChange} /> &&
+          path === '/' && <AddArticleModal user={user} topics={topics} updateArticlesList={this.updateArticlesList} />}
 
-          {/*  if err show no data found */}
-          {err && <p>No Articles Found</p>}
-
-          {/*  if !err and articles are found show sorter*/}
-          {articleListData && !err && !topicErr && <ArticleSorter handleQueryChange={this.handleQueryChange} />}
-
-          {path === '/' &&
+          {/*  prevent null error when refreshing on the topic page*/
           articleListData &&
-          !err &&
-          !topicErr && <AddArticleModal user={user} topics={topics} updateArticlesList={this.updateArticlesList} />}
-
-          {/*  if !err and !articles found show loader*/}
-          {!articleListData && !err && !topicErr ? (
-            <Loader />
-          ) : (
-            /*  prevent null error when refreshing on the topic page*/
-            articleListData &&
+            !displayErr &&
             articleListData.articles.map((article) => {
               return <ArticleCard {...article} key={article.article_id} />;
-            })
-          )}
+            })}
         </section>
 
         {/*  if !err and articles are found show pagination*/}
         {articleListData &&
-        !err && (
+        !displayErr && (
           <Pagination
             articleListData={articleListData}
             updateViaPagination={this.updateViaPagination}
