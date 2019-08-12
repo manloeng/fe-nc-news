@@ -35,7 +35,7 @@ class UsersList extends Component {
     return !users ? (
       <Loader />
     ) : (
-      <section className="usersSection">
+      <section id="usersSection">
         <Header route={path} />
         <div className="userCardSection">
           {users.map((user) => {

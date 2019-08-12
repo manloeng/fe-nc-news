@@ -22,7 +22,7 @@ class TopicList extends Component {
       return <Loader />;
     } else {
       return (
-        <section className="topicsSection">
+        <section id="topicsSection">
           <Header route={path} />
           <AddTopicModal user={user} updateTopicsList={updateTopicsList} />
           <div className="topicCardSection">
