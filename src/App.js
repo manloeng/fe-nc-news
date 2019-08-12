@@ -10,7 +10,6 @@ import ArticleList from './components/HomePage/ArticleList';
 import Article from './components/ArticlePage/Article.jsx';
 import TopicList from './components/TopicsPage/TopicList';
 import User from './components/UserPage/User';
-import ArticleListByTopicSlug from './components/TopicPage/ArticleListByTopicSlug';
 import ErrorPage from './components/ErrorPage';
 import UsersList from './components/UsersPage/UsersList';
 import Loader from './components/Loader/Loader';
