@@ -28,6 +28,14 @@ class User extends Component {
       });
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    const { username } = this.props;
+    if (prevProps.username !== username) {
+      this.setState({ user: null });
+      this.fetchUsersData(username);
+    }
+  }
+
   render() {
     const { user, err } = this.state;
     const { username } = this.props;
