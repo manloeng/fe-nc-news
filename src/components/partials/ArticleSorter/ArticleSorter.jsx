@@ -11,7 +11,10 @@ class ArticleSorter extends Component {
 
   handleChange = (e) => {
     const { id, value } = e.target;
-    this.setState({ [id]: value });
+    const { handleQueryChange } = this.props;
+    this.setState({ [id]: value }, () => {
+      handleQueryChange(this.state);
+    });
   };
 
   render() {

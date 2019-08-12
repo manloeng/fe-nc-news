@@ -45,9 +45,9 @@ class ArticleList extends Component {
     const query = { topic: topic_slug, sort_by, order };
     const { articleListData } = this.state;
 
-    if (articleListData) {
-      this.setState({ articleListData: null });
-    }
+    // if (articleListData) {
+    //   this.setState({ articleListData: null });
+    // }
 
     api
       .getArticleData(query)
@@ -71,10 +71,9 @@ class ArticleList extends Component {
     this.setState({ articleListData });
   };
 
-  // handleChange = (e) => {
-  //   const { id, value } = e.target;
-  //   this.setState({ [id]: value });
-  // };
+  handleQueryChange = ({ sort_by, order }) => {
+    this.setState({ sort_by, order });
+  };
 
   updateArticlesList = (article) => {
     this.setState((currentState) => {
@@ -105,7 +104,7 @@ class ArticleList extends Component {
           {err && <p>No Articles Found</p>}
 
           {/*  if !err and articles are found show sorter*/}
-          {articleListData && !err && !topicErr && <ArticleSorter handleChange={this.handleChange} />}
+          {articleListData && !err && !topicErr && <ArticleSorter handleQueryChange={this.handleQueryChange} />}
 
           {path === '/' &&
           articleListData &&
