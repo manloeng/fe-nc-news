@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import ArticleForm from '';
+import ArticleForm from './ArticleForm/ArticleForm';
 
 class AddArticleModal extends Component {
   state = {

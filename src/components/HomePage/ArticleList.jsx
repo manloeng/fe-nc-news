@@ -3,7 +3,7 @@ import ArticleCard from '../HomePage/ArticleCard';
 import * as api from '../api';
 import Header from '../Header/Header';
 import './ArticleList.css';
-import Pagination from '../Pagination/Pagination';
+import Pagination from '../partials/Pagination/Pagination';
 import Loader from '../Loader/Loader';
 import ArticleSorter from '../partials/ArticleSorter/ArticleSorter';
 import AddArticleModal from './AddArticleModal';
