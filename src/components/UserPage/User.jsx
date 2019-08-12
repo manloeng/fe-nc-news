@@ -7,45 +7,45 @@ import Image from 'react-bootstrap/Image';
 import Loader from '../Loader/Loader';
 
 class User extends Component {
-	state = {
-		userData: null,
-		err: null
-	};
+  state = {
+    user: null,
+    err: null
+  };
 
-	componentDidMount() {
-		this.fetchUsersData();
-	}
+  componentDidMount() {
+    this.fetchUsersData();
+  }
 
-	fetchUsersData = () => {
-		api
-			.getUserData(this.props.username)
-			.then((user) => {
-				this.setState({ userData: user });
-			})
-			.catch((err) => {
-				const { status, data } = err.response;
-				this.setState({ err: { status, msg: data.msg } });
-			});
-	};
+  fetchUsersData = () => {
+    api
+      .getUserData(this.props.username)
+      .then((user) => {
+        this.setState({ user });
+      })
+      .catch((err) => {
+        const { status, data } = err.response;
+        this.setState({ err: { status, msg: data.msg } });
+      });
+  };
 
-	render() {
-		const { userData, err } = this.state;
-		const { username } = this.props;
+  render() {
+    const { user, err } = this.state;
+    const { username } = this.props;
 
-		if (err) return <ErrorPage {...err} />;
-		return !userData ? (
-			<Loader />
-		) : (
-			<section className="userSection">
-				<Header route={username} />
-				<figure id="userProfile">
-					<Image src={userData.avatar_url} alt="users avatar" fluid />
-					<p>Username: {userData.username}</p>
-					<p>Name: {userData.name}</p>
-				</figure>
-			</section>
-		);
-	}
+    if (err) return <ErrorPage {...err} />;
+    return !user ? (
+      <Loader />
+    ) : (
+      <section className="userSection">
+        <Header route={username} />
+        <figure id="userProfile">
+          <Image src={user.avatar_url} alt="users avatar" fluid />
+          <p>Username: {user.username}</p>
+          <p>Name: {user.name}</p>
+        </figure>
+      </section>
+    );
+  }
 }
 
 export default User;
