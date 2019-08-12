@@ -32,3 +32,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+#articleDiv {
+  height: 100vh;
+}
