@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import * as api from '../api';
 import './Article.css';
 import ErrorPage from '../ErrorPage';
-import CommentListByArticleId from './Article/CommentListByArticleId';
-import ArticleData from './Article/ArticleData';
+import CommentListByArticleId from './CommentListByArticleId';
+import ArticleData from './ArticleData';
 import Loader from '../partials/Loader/Loader';
 import DeleteModal from '../partials/DeleteModal/DeleteModal';
 

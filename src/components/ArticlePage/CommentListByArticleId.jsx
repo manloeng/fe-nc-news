@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './CommentListByArticleId.css';
-import * as api from '../../api';
+import * as api from '../api';
 import CommentForm from './CommentForm';
 import CommentData from './CommentData';
-import Loader from '../../partials/Loader/Loader';
+import Loader from '../partials/Loader/Loader';
 
 class CommentListByArticleId extends Component {
 	state = {
