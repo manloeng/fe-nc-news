@@ -7,44 +7,44 @@ import './UsersList.css';
 import Loader from '../Loader/Loader';
 
 class UsersList extends Component {
-	state = {
-		usersList: null,
-		err: null
-	};
+  state = {
+    users: null,
+    err: null
+  };
 
-	componentDidMount() {
-		this.fetchUsersData();
-	}
+  componentDidMount() {
+    this.fetchUsersData();
+  }
 
-	fetchUsersData = () => {
-		api
-			.getUsersListData()
-			.then((users) => {
-				this.setState({ usersList: users });
-			})
-			.catch((err) => {
-				const { status, data } = err.response;
-				this.setState({ err: { status, msg: data.msg } });
-			});
-	};
+  fetchUsersData = () => {
+    api
+      .getUsersListData()
+      .then((users) => {
+        this.setState({ users });
+      })
+      .catch((err) => {
+        const { status, data } = err.response;
+        this.setState({ err: { status, msg: data.msg } });
+      });
+  };
 
-	render() {
-		const { usersList, err } = this.state;
-		const { path } = this.props;
-		if (err) return <ErrorPage {...err} />;
-		return !usersList ? (
-			<Loader />
-		) : (
-			<section className="usersSection">
-				<Header route={path} />
-				<div className="userCardSection">
-					{usersList.map((user) => {
-						return <UserCard {...user} key={user.username} />;
-					})}
-				</div>
-			</section>
-		);
-	}
+  render() {
+    const { users, err } = this.state;
+    const { path } = this.props;
+    if (err) return <ErrorPage {...err} />;
+    return !users ? (
+      <Loader />
+    ) : (
+      <section className="usersSection">
+        <Header route={path} />
+        <div className="userCardSection">
+          {users.map((user) => {
+            return <UserCard {...user} key={user.username} />;
+          })}
+        </div>
+      </section>
+    );
+  }
 }
 
 export default UsersList;
