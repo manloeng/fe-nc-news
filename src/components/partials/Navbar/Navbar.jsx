@@ -5,7 +5,7 @@ import { Link, navigate } from '@reach/router';
 import SplitButton from 'react-bootstrap/SplitButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Image from 'react-bootstrap/Image';
-import Img from '../../images/logo-small.png';
+import Img from '../../images/logo-lg.jpg';
 
 const Navbar = ({ topics, user, avatar_url }) => {
   return (
