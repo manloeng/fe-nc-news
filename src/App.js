@@ -37,10 +37,6 @@ class App extends Component {
     this.setState({ topicsData: data });
   };
 
-  updateRoute = (route) => {
-    this.setState({ route });
-  };
-
   render() {
     const { topicsData, user, avatar_url } = this.state;
     return !topicsData ? (
