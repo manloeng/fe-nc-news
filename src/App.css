@@ -28,7 +28,7 @@ p {
 }
 
 .img-fluid {
-  max-width: 200px;
+  max-width: 150px;
 }
 
 #navbar {
@@ -47,9 +47,6 @@ ul {
   #mainCol {
     height: 100vh;
     overflow: auto;
-  }
-  .img-fluid {
-    max-width: 100px;
   }
 }
 

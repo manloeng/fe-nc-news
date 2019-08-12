@@ -1,80 +1,61 @@
 div {
-	justify-content: center;
+  justify-content: center;
 }
 
 .fa-user-circle-o {
-	justify-content: center;
+  justify-content: center;
 }
 
-/* .col-4 {
-	background-color: whitesmoke;
-} */
-
 #splitBtnRow {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dropdown-menu {
-	height: 80vh;
-	overflow: auto;
-	text-align: center;
+  height: 80vh;
+  overflow: auto;
+  text-align: center;
 }
 
 .fa-plus-circle {
-	color: rgb(56, 119, 255);
+  color: rgb(56, 119, 255);
 }
-/* 
-div .addPost {
-	padding: 5rem 1rem;
-} */
 
 .addPost {
-	display: none;
+  display: none;
 }
 
 #userLink {
-	margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 #homeLink {
-	margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 #usersLink {
-	margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 #profile {
-	margin: auto;
+  margin: auto;
 }
 
 #user {
-	margin: auto;
+  margin: auto;
 }
 
 .avatarImg {
-	max-width: 100px;
+  max-width: 100px;
 }
 
 .logoImg {
-	padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-	max-width: 200px;
-}
-
-@media only screen and (max-width: 600px) {
-	.col-4 {
-		min-width: 90px;
-	}
-	.logoImg {
-		padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-		max-width: 100px;
-	}
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 
 @media (min-width: 600px) {
-	.container {
-		max-width: none;
-	}
+  .container {
+    max-width: none;
+  }
 }
