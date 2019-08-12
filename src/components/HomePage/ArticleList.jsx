@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 import './ArticleList.css';
 import Pagination from '../Pagination/Pagination';
 import Loader from '../Loader/Loader';
-import ArticleSorter from '../ArticleSorter/ArticleSorter';
+import ArticleSorter from '../partials/ArticleSorter/ArticleSorter';
 import AddArticleModal from './AddArticleModal';
 import ErrorPage from '../ErrorPage';
 
@@ -73,7 +73,9 @@ class ArticleList extends Component {
 
   handleChange = (e) => {
     const { id, value } = e.target;
-    this.setState({ [id]: value });
+    this.setState({ [id]: value }, () => {
+      console.log(this.state);
+    });
   };
 
   updateArticlesList = (article) => {
