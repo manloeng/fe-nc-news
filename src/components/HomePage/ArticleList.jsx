@@ -41,7 +41,7 @@ class ArticleList extends Component {
   }
 
   fetchArticleData = (sort_by, order) => {
-    const { topic_slug, topicsData } = this.props;
+    const { topic_slug, topics } = this.props;
     const query = { topic: topic_slug, sort_by, order };
     const { articleListData } = this.state;
 
@@ -56,7 +56,7 @@ class ArticleList extends Component {
       })
       .catch((err) => {
         const { status, data } = err.response;
-        topicsData.forEach((topic) => {
+        topics.forEach((topic) => {
           if (topic_slug.trim() === topic.slug.trim()) {
             this.setState({ err: { status, msg: data.msg }, topicErr: null });
           }
@@ -89,7 +89,7 @@ class ArticleList extends Component {
 
   render() {
     const { articleListData, err, topicErr } = this.state;
-    const { topic_slug, user, topicsData, path } = this.props;
+    const { topic_slug, user, topics, path } = this.props;
 
     return (
       <div>
@@ -110,9 +110,7 @@ class ArticleList extends Component {
           {path === '/' &&
           articleListData &&
           !err &&
-          !topicErr && (
-            <AddArticleModal user={user} topicsData={topicsData} updateArticlesList={this.updateArticlesList} />
-          )}
+          !topicErr && <AddArticleModal user={user} topics={topics} updateArticlesList={this.updateArticlesList} />}
 
           {/*  if !err and !articles found show loader*/}
           {!articleListData && !err && !topicErr ? (

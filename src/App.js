@@ -16,7 +16,7 @@ import Loader from './components/Loader/Loader';
 
 class App extends Component {
   state = {
-    topicsData: null,
+    topics: null,
     //user needs to be passed for validation
     user: 'grumpy19',
     avatar_url: 'https://www.tumbit.com/profile-image/4/original/mr-grumpy.jpg'
@@ -28,36 +28,31 @@ class App extends Component {
 
   fetchTopicsData = () => {
     api.getTopicsData().then((topics) => {
-      this.setState({ topicsData: topics });
+      this.setState({ topics });
     });
   };
 
-  updateTopicsList = (data) => {
-    this.setState({ topicsData: data });
+  updateTopicsList = ({ topics }) => {
+    this.setState({ topics });
   };
 
   render() {
-    const { topicsData, user, avatar_url } = this.state;
-    return !topicsData ? (
+    const { topics, user, avatar_url } = this.state;
+    return !topics ? (
       <Loader />
     ) : (
       <div className="App">
         <Container>
           <Row>
             <Col xs={4}>
-              <Navbar topicsData={topicsData} user={user} avatar_url={avatar_url} />
+              <Navbar topics={topics} user={user} avatar_url={avatar_url} />
             </Col>
             <Col xs={8}>
               <Router>
-                <TopicList
-                  path="/explore"
-                  topicsData={topicsData}
-                  user={user}
-                  updateTopicsList={this.updateTopicsList}
-                />
-                <ArticleList path="/explore/:topic_slug" user={user} topicsData={topicsData} />
-                <ArticleList path="/" user={user} topicsData={topicsData} />
-                <ArticleList path="/articles" user={user} topicsData={topicsData} />
+                <TopicList path="/explore" topics={topics} user={user} updateTopicsList={this.updateTopicsList} />
+                <ArticleList path="/explore/:topic_slug" user={user} topics={topics} />
+                <ArticleList path="/" user={user} topics={topics} />
+                <ArticleList path="/articles" user={user} topics={topics} />
                 <Article path="/articles/:article_id" user={user} />
                 <UsersList path="/users" />
                 <User path="/users/:username" />
