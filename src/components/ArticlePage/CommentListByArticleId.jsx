@@ -7,7 +7,8 @@ import Loader from '../partials/Loader/Loader';
 
 class CommentListByArticleId extends Component {
   state = {
-    comments: null
+    comments: null,
+    isLoading: true
   };
 
   componentDidMount() {
@@ -16,8 +17,9 @@ class CommentListByArticleId extends Component {
 
   fetchCommentDataByArticleId = () => {
     const { article_id } = this.props;
+    this.setState({ isLoading: true });
     api.getCommentDataByArticleId(article_id).then((comments) => {
-      this.setState({ comments });
+      this.setState({ comments, isLoading: false });
     });
   };
 
@@ -25,7 +27,7 @@ class CommentListByArticleId extends Component {
     const { article_id } = this.props;
     const { name } = e.target;
     api.deleteCommentByCommentId(name, article_id).then((comments) => {
-      this.setState({ comments: comments });
+      this.setState({ comments, isLoading: false });
     });
   };
 
@@ -38,11 +40,10 @@ class CommentListByArticleId extends Component {
   };
 
   render() {
-    const { comments } = this.state;
+    const { comments, isLoading } = this.state;
     const { user, article_id } = this.props;
-    return !comments ? (
-      <Loader />
-    ) : (
+    if (isLoading) return <Loader />;
+    return (
       <section>
         <article id="commentListByArticleId">
           {user && <CommentForm updateCommentList={this.updateCommentList} user={user} article_id={article_id} />}

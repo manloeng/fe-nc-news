@@ -32,7 +32,7 @@ class App extends Component {
     });
   };
 
-  updateTopicsList = ({ topics }) => {
+  updateTopicsList = (topics) => {
     this.setState({ topics });
   };
 
