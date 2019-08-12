@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as api from '../api';
 import ErrorPage from '../ErrorPage';
-import UserCard from './UsersList/UserCard';
+import UserCard from './UserCard';
 import Header from '../Header/Header';
 import './UsersList.css';
 import Loader from '../Loader/Loader';
