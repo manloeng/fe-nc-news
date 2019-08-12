@@ -6,10 +6,12 @@ import './ArticleListByTopicSlug.css';
 import Pagination from '../Pagination/Pagination';
 import Loader from '../Loader/Loader';
 import ArticleSorter from '../ArticleSorter/ArticleSorter';
+import ErrorPage from '../ErrorPage';
 
 class ArticleListByTopicSlug extends Component {
   state = {
     articleDataByTopicSlug: null,
+    topicErr: null,
     err: null,
     sort_by: 'Date',
     order: 'Desc'
@@ -38,10 +40,11 @@ class ArticleListByTopicSlug extends Component {
   }
 
   fetchArticleDataByTopicSlug = (sort_by, order) => {
-    const { topic_slug } = this.props;
+    const { topic_slug, topicsData } = this.props;
     const query = { topic: topic_slug, sort_by, order };
+    const { articleDataByTopicSlug } = this.state;
 
-    if (this.state.articleDataByTopicSlug) {
+    if (articleDataByTopicSlug) {
       this.setState({ articleDataByTopicSlug: null });
     }
 
@@ -52,7 +55,14 @@ class ArticleListByTopicSlug extends Component {
       })
       .catch((err) => {
         const { status, data } = err.response;
-        this.setState({ err: { status, msg: data.msg } });
+        topicsData.forEach((topic) => {
+          if (topic_slug.trim() === topic.slug.trim()) {
+            this.setState({ err: { status, msg: data.msg }, topicErr: null });
+          }
+        });
+        if (!this.state.err) {
+          this.setState({ topicErr: { status, msg: 'Topic not found!' }, err: null });
+        }
       });
   };
 
@@ -66,25 +76,30 @@ class ArticleListByTopicSlug extends Component {
   };
 
   render() {
-    const { articleDataByTopicSlug, err } = this.state;
+    const { articleDataByTopicSlug, err, topicErr } = this.state;
     const { topic_slug } = this.props;
-
     return (
       <div>
         <section className="topicSection">
-          <Header route={topic_slug} />
-          {/*  if err show no articles found */}
+          {/*  if theres no err show  header */}
+
+          {!articleDataByTopicSlug && !topicErr && <Header route={topic_slug} />}
+
+          {/*  if topic err show no topic found */}
+          {topicErr && <ErrorPage {...topicErr} />}
+
+          {/*  if err show no data found */}
           {err && <p>No Articles Found</p>}
 
           {/*  if !err and articles are found show sorter*/}
-          {articleDataByTopicSlug && !err && <ArticleSorter handleChange={this.handleChange} />}
+          {articleDataByTopicSlug && !err && !topicErr && <ArticleSorter handleChange={this.handleChange} />}
 
           {/*  if !err and !articles found show loader*/}
-          {!articleDataByTopicSlug && !err ? (
+          {!articleDataByTopicSlug && !err && !topicErr ? (
             <Loader />
           ) : (
             /*  prevent null error when refreshing on the topic page*/
-            !err &&
+            articleDataByTopicSlug &&
             articleDataByTopicSlug.articles.map((article) => {
               return <ArticleCard {...article} key={article.article_id} />;
             })
