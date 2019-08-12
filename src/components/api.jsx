@@ -1,6 +1,4 @@
 import axios from 'axios';
-import formatTopicInput from '../test/formatTopicInput';
-import formatArticleInput from '../test/formatArticleInput';
 import { navigate } from '@reach/router';
 
 const request = axios.create({
@@ -55,9 +53,9 @@ export const postTopicData = (inputBody) => {
   });
 };
 
-export const postArticleData = (inputBody, user) => {
-  const formattedArticleInput = formatArticleInput(inputBody, user);
-  return request.post('/articles', formattedArticleInput).then(({ data }) => {
+export const postArticleData = (inputBody, username) => {
+  const newInput = { ...inputBody, username };
+  return request.post('/articles', newInput).then(({ data }) => {
     return data.article;
   });
 };

@@ -6,14 +6,14 @@ import * as api from '../../api';
 
 class ArticleForm extends Component {
   state = {
-    articleTitle: '',
-    topicInput: '',
-    articleDescription: '',
+    title: '',
+    topic: '',
+    body: '',
     err: null
   };
 
   handleSelect = (e) => {
-    this.setState({ topicInput: e.target.value });
+    this.setState({ topic: e.target.value });
   };
 
   handleChange = (e) => {
@@ -31,28 +31,28 @@ class ArticleForm extends Component {
       .postArticleData(restOfState, user)
       .then((article) => {
         updateArticlesList(article);
-        if (this.state.topicInput) {
+        if (this.state.topic) {
           handleClose();
         }
         this.setState({
-          articleTitle: '',
-          topicInput: '',
-          articleDescription: ''
+          title: '',
+          topic: '',
+          body: ''
         });
       })
       .catch((err) => {
         const { status, data } = err.response;
         this.setState({
           err: { status, msg: data.msg },
-          articleTitle: '',
-          topicInput: '',
-          articleDescription: ''
+          title: '',
+          topic: '',
+          body: ''
         });
       });
   };
 
   render() {
-    const { articleTitle, topicInput, articleDescription, err } = this.state;
+    const { title, topic, body, err } = this.state;
     const { topics } = this.props;
 
     return (
@@ -64,15 +64,15 @@ class ArticleForm extends Component {
             <Form.Control
               type="text"
               placeholder="Enter Article Title"
-              name="articleTitle"
+              name="title"
               onChange={this.handleChange}
-              value={articleTitle}
+              value={title}
               required
             />
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlSelect1">
             <Form.Label>Select Topic</Form.Label>
-            <Form.Control as="select" onChange={this.handleSelect} value={topicInput}>
+            <Form.Control as="select" onChange={this.handleSelect} value={topic}>
               <option>Select Topic</option>
               {topics.map((topic) => {
                 return <option key={topic.slug}>{topic.slug}</option>;
@@ -80,14 +80,14 @@ class ArticleForm extends Component {
             </Form.Control>
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Article Description: </Form.Label>
+            <Form.Label>Article body: </Form.Label>
             <Form.Control
               as="textarea"
               rows="3"
-              name="articleDescription"
-              placeholder="Enter Article Description"
+              name="body"
+              placeholder="Enter Article body"
               onChange={this.handleChange}
-              value={articleDescription}
+              value={body}
               required
             />
           </Form.Group>
