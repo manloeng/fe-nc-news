@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ArticleCard from '../HomePage/ArticleList/ArticleCard';
+import ArticleCard from '../HomePage/ArticleCard';
 import * as api from '../api';
 import Header from '../Header/Header';
 import './ArticleList.css';

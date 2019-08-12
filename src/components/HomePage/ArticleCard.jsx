@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ArticleCard.css';
 import { Link } from '@reach/router';
-import * as api from '../../api';
+import * as api from '../api';
 
 class ArticleCard extends Component {
 	render() {
