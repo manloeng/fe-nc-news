@@ -44,6 +44,10 @@ ul {
   #sideNav {
     display: none;
   }
+  #mainCol {
+    height: 100vh;
+    overflow: auto;
+  }
   .img-fluid {
     max-width: 100px;
   }

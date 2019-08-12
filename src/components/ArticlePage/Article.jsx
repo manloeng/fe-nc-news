@@ -42,7 +42,7 @@ class Article extends Component {
     return !article ? (
       <Loader />
     ) : (
-      <section className="article">
+      <section id="articleSection">
         <div className="articleDivider">
           <ArticleData {...article} user={user} />
           {user === article.author && <DeleteModal handleClick={this.handleClick} />}

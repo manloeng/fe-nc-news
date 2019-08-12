@@ -19,3 +19,9 @@
   overflow: auto;
   height: 85vh;
 }
+
+@media only screen and (max-width: 600px) {
+  #usersSection {
+    overflow: visible;
+  }
+}

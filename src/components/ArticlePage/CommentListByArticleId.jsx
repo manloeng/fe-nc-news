@@ -44,7 +44,7 @@ class CommentListByArticleId extends Component {
     const { user, article_id } = this.props;
     if (isLoading) return <Loader />;
     return (
-      <section>
+      <section id="commentSection">
         <article id="commentListByArticleId">
           {user && <CommentForm updateCommentList={this.updateCommentList} user={user} article_id={article_id} />}
           {!comments.length ? (
