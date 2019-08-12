@@ -56,7 +56,7 @@ class App extends Component {
                   user={user}
                   updateTopicsList={this.updateTopicsList}
                 />
-                <ArticleListByTopicSlug path="/explore/:topic_slug" user={user} topicsData={topicsData} />
+                <ArticleList path="/explore/:topic_slug" user={user} topicsData={topicsData} />
                 <ArticleList path="/" user={user} topicsData={topicsData} />
                 <ArticleList path="/articles" user={user} topicsData={topicsData} />
                 <Article path="/articles/:article_id" user={user} />
