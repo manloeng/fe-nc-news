@@ -5,7 +5,7 @@ import ErrorPage from '../ErrorPage';
 import CommentListByArticleId from './Article/CommentListByArticleId';
 import ArticleData from './Article/ArticleData';
 import Loader from '../Loader/Loader';
-import DeleteModal from '../DeleteModal/DeleteModal';
+import DeleteModal from '../partials/DeleteModal/DeleteModal';
 
 class Article extends Component {
   state = {

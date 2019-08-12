@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../../Header/Header';
+import Header from '../../partials/Header/Header';
 import { Link } from '@reach/router';
 import * as api from '../../api';
 import Voter from '../../Voter/Voter';

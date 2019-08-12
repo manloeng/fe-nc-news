@@ -4,7 +4,7 @@ import Voter from '../../Voter/Voter';
 import { Link } from '@reach/router';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import './CommentData.css';
-import DeleteModal from '../../DeleteModal/DeleteModal';
+import DeleteModal from '../../partials/DeleteModal/DeleteModal';
 
 const CommentData = ({ comment_id, author, body, created_at, votes, user, handleClick }) => {
 	return (

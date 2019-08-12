@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header/Header';
+import Header from './partials/Header/Header';
 import Image from 'react-bootstrap/Image';
 import './ErrorPage.css';
 
