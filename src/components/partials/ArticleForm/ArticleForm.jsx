@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './ArticleForm.css';
-import * as api from '../api';
+import * as api from '../../api';
 
 class ArticleForm extends Component {
   state = {
