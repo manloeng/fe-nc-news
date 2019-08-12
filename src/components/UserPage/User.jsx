@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import * as api from '../api';
 import ErrorPage from '../ErrorPage';
 import './user.css';
-import Header from '../Header/Header';
+import Header from '../partials/Header/Header';
 import Image from 'react-bootstrap/Image';
-import Loader from '../Loader/Loader';
+import Loader from '../partials/Loader/Loader';
 
 class User extends Component {
   state = {

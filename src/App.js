@@ -4,7 +4,7 @@ import './App.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/partials/Navbar/Navbar';
 import { Router } from '@reach/router';
 import ArticleList from './components/HomePage/ArticleList';
 import Article from './components/ArticlePage/Article.jsx';
@@ -12,7 +12,7 @@ import TopicList from './components/TopicsPage/TopicList';
 import User from './components/UserPage/User';
 import ErrorPage from './components/ErrorPage';
 import UsersList from './components/UsersPage/UsersList';
-import Loader from './components/Loader/Loader';
+import Loader from './components/partials/Loader/Loader';
 
 class App extends Component {
   state = {

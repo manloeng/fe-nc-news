@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ArticleCard from '../HomePage/ArticleCard';
 import * as api from '../api';
-import Header from '../Header/Header';
+import Header from '../partials/Header/Header';
 import './ArticleList.css';
 import Pagination from '../partials/Pagination/Pagination';
-import Loader from '../Loader/Loader';
+import Loader from '../partials/Loader/Loader';
 import ArticleSorter from '../partials/ArticleSorter/ArticleSorter';
 import AddArticleModal from './AddArticleModal';
 import ErrorPage from '../ErrorPage';
@@ -71,12 +71,10 @@ class ArticleList extends Component {
     this.setState({ articleListData });
   };
 
-  handleChange = (e) => {
-    const { id, value } = e.target;
-    this.setState({ [id]: value }, () => {
-      console.log(this.state);
-    });
-  };
+  // handleChange = (e) => {
+  //   const { id, value } = e.target;
+  //   this.setState({ [id]: value });
+  // };
 
   updateArticlesList = (article) => {
     this.setState((currentState) => {
@@ -109,10 +107,10 @@ class ArticleList extends Component {
           {/*  if !err and articles are found show sorter*/}
           {articleListData && !err && !topicErr && <ArticleSorter handleChange={this.handleChange} />}
 
-          {path === '/' &&
+          {/* {path === '/' &&
           articleListData &&
           !err &&
-          !topicErr && <AddArticleModal user={user} topics={topics} updateArticlesList={this.updateArticlesList} />}
+          !topicErr && <AddArticleModal user={user} topics={topics} updateArticlesList={this.updateArticlesList} />} */}
 
           {/*  if !err and !articles found show loader*/}
           {!articleListData && !err && !topicErr ? (

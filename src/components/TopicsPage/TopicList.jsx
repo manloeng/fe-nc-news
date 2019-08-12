@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './TopicList.css';
 import TopicCard from './TopicCard';
-import Header from '../Header/Header';
-import Loader from '../Loader/Loader';
+import Header from '../partials/Header/Header';
+import Loader from '../partials/Loader/Loader';
 import AddTopicModal from './AddTopicModal';
 
 class TopicList extends Component {
