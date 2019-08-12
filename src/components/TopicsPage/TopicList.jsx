@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './TopicList.css';
-import TopicCard from './TopicList/TopicCard';
+import TopicCard from './TopicCard';
 import Header from '../Header/Header';
 import Loader from '../Loader/Loader';
-import AddTopicModal from './TopicList/AddTopicModal';
+import AddTopicModal from './AddTopicModal';
 
 class TopicList extends Component {
   //loader problem here
