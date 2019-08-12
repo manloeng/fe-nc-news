@@ -107,10 +107,10 @@ class ArticleList extends Component {
           {/*  if !err and articles are found show sorter*/}
           {articleListData && !err && !topicErr && <ArticleSorter handleChange={this.handleChange} />}
 
-          {/* {path === '/' &&
+          {path === '/' &&
           articleListData &&
           !err &&
-          !topicErr && <AddArticleModal user={user} topics={topics} updateArticlesList={this.updateArticlesList} />} */}
+          !topicErr && <AddArticleModal user={user} topics={topics} updateArticlesList={this.updateArticlesList} />}
 
           {/*  if !err and !articles found show loader*/}
           {!articleListData && !err && !topicErr ? (
