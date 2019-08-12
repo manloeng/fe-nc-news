@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Navbar from './components/partials/Navbar/Navbar';
+import TopNavbar from './components/partials/Navbar/TopNavbar';
 import { Router } from '@reach/router';
 import ArticleList from './components/HomePage/ArticleList';
 import Article from './components/ArticlePage/Article.jsx';
@@ -44,10 +45,11 @@ class App extends Component {
       <div className="App">
         <Container>
           <Row>
-            <Col xs={4}>
+            <Col sm={4} id="sideNav">
               <Navbar topics={topics} user={user} avatar_url={avatar_url} />
             </Col>
-            <Col xs={8}>
+            <Col s="auto">
+              <TopNavbar topics={topics} user={user} avatar_url={avatar_url} />
               <Router>
                 <TopicList path="/explore" topics={topics} user={user} updateTopicsList={this.updateTopicsList} />
                 <ArticleList path="/explore/:topic_slug" user={user} topics={topics} />

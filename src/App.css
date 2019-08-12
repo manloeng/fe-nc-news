@@ -1,80 +1,99 @@
 html,
 body {
-	margin: 0;
+  margin: 0;
 }
 
 .App {
-	text-align: center;
+  text-align: center;
 }
 
 .container {
-	padding: 0;
-	margin: auto;
+  padding: 0;
+  margin: auto;
 }
 
 .col {
-	padding: 0;
+  padding: 0;
 }
 .row {
-	margin: 0;
+  margin: 0;
 }
 
 ul {
-	padding: 0;
+  padding: 0;
 }
 
 p {
-	margin: auto;
+  margin: auto;
 }
 
 .col-4,
 .col-8 {
-	padding: 0;
+  padding: 0;
 }
 
 .img-fluid {
-	max-width: 200px;
+  max-width: 200px;
 }
 
 #navbar {
-	height: 100vh;
-	border-right: 1px solid grey;
+  height: 100vh;
+  border-right: 1px solid grey;
 }
 
 ul {
-	list-style-type: none;
+  list-style-type: none;
 }
 
 @media only screen and (max-width: 600px) {
-	.img-fluid {
-		max-width: 100px;
-	}
+  #sideNav {
+    display: none;
+  }
+  .img-fluid {
+    max-width: 100px;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  #topNavbar {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 700px) and (orientation: landscape) {
-	.fa-4x {
-		font-size: 2em;
-	}
-	div #homeLink {
-		margin-bottom: 0px;
-	}
-	div #userLink {
-		margin-bottom: 0px;
-	}
+  .fa-4x {
+    font-size: 2em;
+  }
+  div #homeLink {
+    margin-bottom: 0px;
+  }
+  div #userLink {
+    margin-bottom: 0px;
+  }
 
-	#user a img {
-		max-width: 50px;
-	}
-	.fa-3x {
-		font-size: 2em;
-	}
+  #user a img {
+    max-width: 50px;
+  }
+  .fa-3x {
+    font-size: 2em;
+  }
 }
 
 .App {
-	font-family: monospace;
+  font-family: monospace;
 }
 
 .App h1,
 h2 {
-	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#topNavbar {
+  padding: 1rem;
+  border-bottom: 0.01rem solid gray;
+}
+
+#navLinks {
+  align-items: center;
+  justify-content: center;
 }
