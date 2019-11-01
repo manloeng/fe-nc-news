@@ -1,50 +1,43 @@
-import React, { Component } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import * as api from '../api';
+import React, { useState } from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import * as api from "../api";
 
-class CommentForm extends Component {
-  state = {
-    commentDescription: ''
-  };
+function CommentForm({ updateCommentList, user, article_id }) {
+  const [commentDescription, setCommentDescription] = useState("");
 
-  handleSubmit = (e) => {
-    const { commentDescription } = this.state;
-    const { updateCommentList, user, article_id } = this.props;
+  const handleSubmit = e => {
     e.preventDefault();
-    api.postCommentData(commentDescription, user, article_id).then((comment) => {
+    api.postCommentData(commentDescription, user, article_id).then(comment => {
       updateCommentList(comment);
-      this.setState({ commentDescription: '' });
+      setCommentDescription("");
     });
   };
 
-  handleChange = (e) => {
+  const handleChange = e => {
     const { value } = e.target;
-    this.setState({ commentDescription: value });
+    setCommentDescription(value);
   };
 
-  render() {
-    const { commentDescription } = this.state;
-    return (
-      <Form id="commentInput" onSubmit={this.handleSubmit}>
-        <Form.Group controlId="textArea">
-          <Form.Label>Comment Description: </Form.Label>
-          <Form.Control
-            as="textarea"
-            rows="3"
-            name="commentDescription"
-            placeholder="Enter Comment Description"
-            onChange={this.handleChange}
-            value={commentDescription}
-            required
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
-    );
-  }
+  return (
+    <Form id="commentInput" onSubmit={handleSubmit}>
+      <Form.Group controlId="textArea">
+        <Form.Label>Comment Description: </Form.Label>
+        <Form.Control
+          as="textarea"
+          rows="3"
+          name="commentDescription"
+          placeholder="Enter Comment Description"
+          onChange={handleChange}
+          value={commentDescription}
+          required
+        />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
+  );
 }
 
 export default CommentForm;
