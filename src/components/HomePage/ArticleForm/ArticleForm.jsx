@@ -19,7 +19,7 @@ function ArticleForm({ updateArticlesList, user, handleClose, topics }) {
 
     if (err) setErr("");
     api
-      .postArticleData({title, topic, body}, user)
+      .postArticleData({ title, topic, body }, user)
       .then(article => {
         updateArticlesList(article);
         if (topic) {
@@ -49,8 +49,8 @@ function ArticleForm({ updateArticlesList, user, handleClose, topics }) {
             placeholder="Enter Article Title"
             name="title"
             onChange={e => {
-                setTitle(e.target.value);
-              }}
+              setTitle(e.target.value);
+            }}
             value={title}
             required
           />
