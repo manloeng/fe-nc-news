@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as api from '../api';
 import ErrorPage from '../ErrorPage';
 import './user.css';
@@ -6,41 +6,27 @@ import Header from '../partials/Header/Header';
 import Image from 'react-bootstrap/Image';
 import Loader from '../partials/Loader/Loader';
 
-class User extends Component {
-  state = {
-    user: null,
-    err: null
-  };
+function User({ username }) {
+  // Declare a new state variable, which we'll call "count"
+  const [user, setUser] = useState([]);
+  const [ err, setError ] = useState("")
 
-  componentDidMount() {
-    this.fetchUsersData();
-  }
+  useEffect(()=>{
+    const fetchUsersData = () => {
+        api
+          .getUserData(username)
+          .then((user) => {
+            setUser(user);
+          })
+          .catch((err) => {
+            const { data } = err.response;
+            setError(data.msg)
+          });
+      };
+      fetchUsersData()
+  }, [username])
 
-  fetchUsersData = () => {
-    api
-      .getUserData(this.props.username)
-      .then((user) => {
-        this.setState({ user });
-      })
-      .catch((err) => {
-        const { status, data } = err.response;
-        this.setState({ err: { status, msg: data.msg } });
-      });
-  };
-
-  componentDidUpdate(prevProps, prevState) {
-    const { username } = this.props;
-    if (prevProps.username !== username) {
-      this.setState({ user: null });
-      this.fetchUsersData(username);
-    }
-  }
-
-  render() {
-    const { user, err } = this.state;
-    const { username } = this.props;
-
-    if (err) return <ErrorPage {...err} />;
+  if (err) return <ErrorPage {...err} />;
     return !user ? (
       <Loader />
     ) : (
@@ -53,7 +39,7 @@ class User extends Component {
         </figure>
       </section>
     );
-  }
+
 }
 
 export default User;
