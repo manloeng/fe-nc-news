@@ -55,6 +55,7 @@ export const postTopicData = (inputBody) => {
 
 export const postArticleData = (inputBody, username) => {
   const newInput = { ...inputBody, username };
+  console.log(newInput)
   return request.post('/articles', newInput).then(({ data }) => {
     return data.article;
   });
