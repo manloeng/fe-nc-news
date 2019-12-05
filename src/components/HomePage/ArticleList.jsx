@@ -30,7 +30,6 @@ function ArticleList({ topic_slug, user, topics, path }) {
     if (sort_by === "Comment Count") {
       setSortby("comment_count");
 
-      console.log(sort_by);
       fetchArticleData(sort_by.toLowerCase(), order.toLowerCase());
     }
   }, [topic_slug, sort_by, order]);
@@ -76,7 +75,6 @@ function ArticleList({ topic_slug, user, topics, path }) {
   };
 
   const updateArticlesList = article => {
-    console.log(articleListData);
     setArticleListData({
       total_count: articleListData.total_count,
       articles: [article, ...articleListData.articles]
