@@ -12,8 +12,6 @@ function Article({ article_id, user }) {
   const [err, setErr] = useState(null);
 
   useEffect(() => {
-    fetchArticleDataByArticleId();
-  }, []);
 
   const fetchArticleDataByArticleId = () => {
     api
@@ -26,6 +24,10 @@ function Article({ article_id, user }) {
         setErr({ err: { status, msg: data.msg } });
       });
   };
+  
+    fetchArticleDataByArticleId();
+  }, []);
+
 
   const handleClick = e => {
     api.deleteArticleByArticleId(article_id);

@@ -10,17 +10,16 @@ function CommentListByArticleId({ user, article_id }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetchCommentDataByArticleId();
-  }, []);
+    const fetchCommentDataByArticleId = () => {
+      setIsLoading(true);
+      api.getCommentDataByArticleId(article_id).then(comments => {
+        setIsLoading(false);
+        setComment(comments);
+      });
+    };
 
-  const fetchCommentDataByArticleId = () => {
-    setIsLoading(true);
-    api.getCommentDataByArticleId(article_id).then(comments => {
-      setIsLoading(false);
-      setComment(comments);
-      console.log(comments)
-    });
-  };
+    fetchCommentDataByArticleId();
+  },[]);
 
   const handleClick = e => {
     const { name } = e.target;
