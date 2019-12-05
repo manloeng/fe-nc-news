@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     fetchTopicsData();
-  });
+  },[]);
 
   const fetchTopicsData = () => {
     api.getTopicsData().then(topics => {
